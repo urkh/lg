@@ -19,10 +19,11 @@ public class Vivienda extends Model {
 	public Persona persona;
 
 	@Constraints.Required
-	@ManyToOne
-	public ViviendaSol solicitud;
+	public String solicitud;
 	
 	@Constraints.Required
 	@Formats.DateTime(pattern="yyyy-mm-dd")
 	public Date fechaSol;
+
+	public String rehabilitacion;
 }

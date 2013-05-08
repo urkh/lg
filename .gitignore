@@ -11,4 +11,6 @@ dist
 /.idea_modules
 /.classpath
 /.project
+/.settings
+/.target
 /RUNNING_PID

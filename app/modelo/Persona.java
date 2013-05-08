@@ -35,6 +35,9 @@ public class Persona extends Model {
 	public String direccion;
 	
 	public String telefono;
+
+	@Constraints.Required
+	public String gradoInstruccion;
 	
 	@Constraints.Required
 	public Double ingresoMensual;
