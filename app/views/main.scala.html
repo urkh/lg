@@ -1,15 +1,231 @@
-@(title: String)(content: Html)
-
+@(content: Html)
 <!DOCTYPE html>
-
 <html>
-    <head>
-        <title>@title</title>
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
-        <script src="@routes.Assets.at("javascripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
-    </head>
-    <body>
-        @content
-    </body>
+<head>
+	<title>Titulo</title>
+	
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	
+	<!-- Bootstrap -->
+
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("template/bootstrap/css/bootstrap.min.css")">
+
+	<link href="@routes.Assets.at("template/bootstrap/css/bootstrap-responsive.min.css")" rel="stylesheet" />
+
+	<link href="@routes.Assets.at("template/bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap.min.css")" rel="stylesheet" />
+
+	<link href="@routes.Assets.at("template/bootstrap/extend/jasny-bootstrap/css/jasny-bootstrap-responsive.min.css")" rel="stylesheet" />
+
+	<link href="@routes.Assets.at("template/bootstrap/extend/bootstrap-wysihtml5/css/bootstrap-wysihtml5-0.0.2.css")" rel="stylesheet" />
+
+	<link rel="stylesheet" href="@routes.Assets.at("template/bootstrap/extend/bootstrap-select/bootstrap-select.css")" />
+	<link rel="stylesheet" href="@routes.Assets.at("template/bootstrap/extend/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css")" />
+	
+	<!-- JQueryUI -->
+	<link rel="stylesheet"  href="@routes.Assets.at("template/theme/scripts/jquery-ui-1.9.2.custom/css/smoothness/jquery-ui-1.9.2.custom.min.css")" />
+	
+	<!-- Glyphicons -->
+	<link rel="stylesheet"  href="@routes.Assets.at("template/theme/css/glyphicons.css")" />
+
+		<!-- Uniform -->
+	<link rel="stylesheet" media="screen" href="@routes.Assets.at("template/theme/scripts/pixelmatrix-uniform/css/uniform.default.css")" />
+
+	<!-- JQuery -->
+	<script  src="@routes.Assets.at("template/theme/scripts/jquery-1.8.2.min.js")"></script>
+	
+	<!-- CSS -->
+	<link rel="stylesheet"  href="@routes.Assets.at("template/theme/css/style.min.css?1358876495")" />
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+
+
+		
+	
+	<!-- Aqui inicia el contenido -->
+	<div class="container-fluid left-menu">
+		
+		<!-- Barra superior principal -->
+		<div class="navbar main">
+			<div class="innerpx">
+				<button type="button" class="btn btn-navbar hidden-desktop hidden-tablet">
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				
+				<div class="positionWrapper">
+					<span class="line"></span>
+
+					<!-- Imagen del perfil -->
+					<div class="profile">
+						<img src="./url/imagen" class="avatar" alt="Profile" />
+						<span class="info hidden-phone">
+							<strong>Luis Gustavo</strong>
+							<em>Administrador</em>
+						</span>
+					</div>
+
+					<!-- Notificaciones -->
+					<ul class="notif">
+						<li>
+							<a href="" class="glyphicons envelope btn" rel="tooltip" data-placement="bottom" data-original-title="3 mensajes nuevos">
+								<i></i>
+								<span>3</span>
+							</a>
+						</li>
+					</ul>
+					
+					<!-- Barra Derecha Superior con menus -->
+					<ul class="topnav hidden-phone">
+						
+						<!-- Opcion desconectar -->
+						<li>
+							<a href="login.html" class="logout glyphicons lock"  rel="tooltip" data-placement="bottom" data-original-title="Desconectarse del sistema">
+								<i></i>
+								<span>Salir</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	
+
+		<!-- Menu de Opciones -->
+		<div class="row-fluid rrow main">
+			<div class="span12 main col" role="main">
+				<div class="row-fluid rrow">
+					<div class="span2 col main-left hide hidden-phone menu-large">
+						<div class="rrow scroll-y-left">
+							<div class="iScrollWrapper">
+								<ul>
+									<li class="glyphicons home currentScroll active"><a href="index.html"><i></i><span>Inicio</span></a></li>
+									<li class="glyphicons coins"><a href="/ciudadanos/nuevo"><i></i><span>Opcion 1</span></a></li>
+									<li class="glyphicons sort"><a href="#"><i></i><span>Opcion 2</span></a></li>
+									<li class="glyphicons picture"><a href="#"><i></i><span>Opcion 3</span></a></li>
+									<li class="glyphicons adress_book"><a href="#"><i></i><span>Opcion 4</span></a></li>
+									<li class="glyphicons charts"><a href="#"><i></i><span>Opcion 5</span></a></li>
+									<li class="glyphicons cogwheels"><a href="#"><i></i><span>Opcion 6</span></a></li>
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menu_forms"><i></i><span>Opcion 7</span></a>
+										<ul class="collapse" id="menu_forms">
+											<li class=""><a href="#" class="glyphicons user"><i></i><span>Crear</span></a></li>
+											<li class=""><a href="#" class="glyphicons circle_ok"><i></i><span>Eliminar</span></a></li>
+											<li class=""><a href="#" class="glyphicons share_alt"><i></i><span>Actualizar</span></a></li> 
+											<li class=""><a href="#" class="glyphicons file_import"><i></i><span>Listar</span></a></li>
+										</ul>
+									</li>
+
+								</ul>
+							</div>
+							<span class="navarrow hide">
+								<span class="glyphicons circle_arrow_down"><i></i></span>
+							</span>
+						</div>
+					</div>
+					<div class="span10 col main-right">
+						<div class="rrow scroll-y" id="mainYScroller">
+							<div class="inner topRight">
+								<ul class="breadcrumb">
+									<li><a href="index.html" class="glyphicons home"><i></i> Inicio</a></li>
+									<li class="divider"></li>
+									<li>Panel Administracion</li>
+								</ul>
+								<div class="separator"></div>
+
+								<h2 class="glyphicons display"><i></i> Administracion</h2>
+								<div class="separator"></div>
+
+								@content
+
+								
+								<br />
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Fin Menu de Opciones -->
+		
+		<!-- Pie de Pagina -->
+		<div id="footer" class="hide">
+	      	<div class="wrap">
+	      		<ul class="notif">
+	      			<li class="active">
+	      				<span data-toggle="menu-position" data-menu-position="left-menu" class="glyphicons circle_arrow_left" title="Mover Menus a la izquierda">
+	      					<i></i>
+	      				</span>
+	      			</li>
+	      			<li>
+	      				<span data-toggle="menu-position" data-menu-position="right-menu" class="glyphicons circle_arrow_right" title="Mover Menus a la derecha">
+	      					<i></i>
+	      				</span>
+	      			</li>
+	      			<li>
+	      				<span data-toggle="menu-position" data-menu-position="top-menu" class="glyphicons circle_arrow_top" title=""><i></i></span>
+	      			</li>
+	      			<li class="divider"></li>
+	      			<li class="active">
+	      				<span data-toggle="menu-size" data-menu-size="0" class="glyphicons show_big_thumbnails text" title="Menus grandes">
+	      					<i></i>
+	      					<span class="hidden-phone">Menus Grandes</span>
+	      				</span>
+	      			</li>
+	      			<li>
+	      				<span data-toggle="menu-size" data-menu-size="1" class="glyphicons show_thumbnails text" title="Menus peque&ntilde;os">
+	      					<i></i>
+	      					<span class="hidden-phone">Menus peque&ntilde;os</span>
+	      				</span>
+	      			</li>		      			
+	      			<li>
+	      				<a href="#" class="glyphicons circle_question_mark text" title="Documentacion del Sistema">
+	      					<i></i>
+	      					<span class="hidden-phone">Ayuda</span>
+	      				</a>
+	      			</li>
+	      		</ul>
+	      	</div>
+	    </div>
+		
+	</div>
+	<!-- Fin Contenido -->
+	
+	<!-- Ocultar Scroll -->
+	<script src="@routes.Assets.at("template/theme/scripts/cubiq-iscroll/src/iscroll.js")"></script>
+
+	<script type="text/javascript" src="@routes.Assets.at("template/theme/scripts/scroll.js")"></script>
+	
+	<!-- JQueryUI -->
+	<script src="@routes.Assets.at("template/theme/scripts/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js")"></script>
+
+	<script src="@routes.Assets.at("template/theme/scripts/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js")"></script>
+	<script src="@routes.Assets.at("template/theme/scripts/jquery.cookie.js")"></script>
+	<script src="@routes.Assets.at("template/theme/scripts/themer.js")"></script>
+
+		<!-- Uniform -->
+	<script src="@routes.Assets.at("template/theme/scripts/pixelmatrix-uniform/jquery.uniform.min.js")"></script>
+
+		<!-- jQuery Validate -->
+	<script src="@routes.Assets.at("template/theme/scripts/jquery-validation/dist/jquery.validate.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("template/theme/scripts/form_validator.js")" type="text/javascript"></script>
+	
+	<!-- Bootstrap Script -->
+	<script src="@routes.Assets.at("template/bootstrap/js/bootstrap.min.js")"></script>
+
+	<script src="@routes.Assets.at("template/bootstrap/extend/bootstrap-select/bootstrap-select.js")"></script>
+	<script src="@routes.Assets.at("template/bootstrap/extend/bootstrap-toggle-buttons/static/js/jquery.toggle.buttons.js")"></script>
+	<script src="@routes.Assets.at("template/bootstrap/extend/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js")"></script>
+
+	<script src="@routes.Assets.at("template/bootstrap/extend/bootstrap-wysihtml5/js/wysihtml5-0.3.0_rc2.min.js")" type="text/javascript"></script>
+	<script src="@routes.Assets.at("template/bootstrap/extend/bootstrap-wysihtml5/js/bootstrap-wysihtml5-0.0.2.js")" type="text/javascript"></script>
+	
+	
+	<!-- Custom Onload Script -->
+	<script src="@routes.Assets.at("template/theme/scripts/load.js")"></script>
+
+</body>
 </html>
