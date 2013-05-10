@@ -1,8 +1,8 @@
-@(content: Html)
+@(comite: String = "")(content: Html)
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Titulo</title>
+	<title>@comite</title>
 	
 	<!-- Meta -->
 	<meta charset="utf-8" />
@@ -83,7 +83,7 @@
 						
 						<!-- Opcion desconectar -->
 						<li>
-							<a href="login.html" class="logout glyphicons lock"  rel="tooltip" data-placement="bottom" data-original-title="Desconectarse del sistema">
+							<a href="/login" class="logout glyphicons lock"  rel="tooltip" data-placement="bottom" data-original-title="Desconectarse del sistema">
 								<i></i>
 								<span>Salir</span>
 							</a>
@@ -102,23 +102,227 @@
 						<div class="rrow scroll-y-left">
 							<div class="iScrollWrapper">
 								<ul>
-									<li class="glyphicons home currentScroll active"><a href="index.html"><i></i><span>Inicio</span></a></li>
-									<li class="glyphicons coins"><a href="/ciudadanos/nuevo"><i></i><span>Opcion 1</span></a></li>
-									<li class="glyphicons sort"><a href="#"><i></i><span>Opcion 2</span></a></li>
-									<li class="glyphicons picture"><a href="#"><i></i><span>Opcion 3</span></a></li>
-									<li class="glyphicons adress_book"><a href="#"><i></i><span>Opcion 4</span></a></li>
-									<li class="glyphicons charts"><a href="#"><i></i><span>Opcion 5</span></a></li>
-									<li class="glyphicons cogwheels"><a href="#"><i></i><span>Opcion 6</span></a></li>
+									<li class="glyphicons home currentScroll active">
+										<a href="index.html">
+											<i></i>
+											<span>Inicio</span>
+										</a>
+									</li>
+									
+									<li class="glyphicons coins">
+										<a href="/ciudadanos/nuevo">
+											<i></i>
+											<span>Ciudadanos</span>
+										</a>
+									</li>
+
 									<li class="hasSubmenu2">
-										<a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menu_forms"><i></i><span>Opcion 7</span></a>
-										<ul class="collapse" id="menu_forms">
-											<li class=""><a href="#" class="glyphicons user"><i></i><span>Crear</span></a></li>
-											<li class=""><a href="#" class="glyphicons circle_ok"><i></i><span>Eliminar</span></a></li>
-											<li class=""><a href="#" class="glyphicons share_alt"><i></i><span>Actualizar</span></a></li> 
-											<li class=""><a href="#" class="glyphicons file_import"><i></i><span>Listar</span></a></li>
+										<a data-toggle="collapse" class="glyphicons sort" href="#menuSalud">
+											<i></i>
+											<span>Comit&eacute; de Salud</span>
+										</a>
+										<ul class="collapse" id="menuSalud">
+											<li class="">
+												<a href="/salud/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Realizar Solicitud</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/salud/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Solicitudes</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+									
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons picture" href="#menuVivienda">
+											<i></i>
+											<span>Comit&eacute; de Vivienda</span>
+										</a>
+										<ul class="collapse" id="menuVivienda">
+											<li class="">
+												<a href="/vivienda/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Realizar Solicitud</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/vivienda/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Solicitudes</span>
+												</a>
+											</li>
 										</ul>
 									</li>
 
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons adress_book" href="#menuAgua">
+											<i></i>
+											<span>Comit&eacute; de Agua</span>
+										</a>
+										<ul class="collapse" id="menuAgua">
+											<li class="">
+												<a href="/agua/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Pago</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/vivienda/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Pagos</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons cogwheels" href="#menuTierras">
+											<i></i>
+											<span>Comit&eacute; de Tierras</span>
+										</a>
+										<ul class="collapse" id="menuTierras">
+											<li class="">
+												<a href="/tierras/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Solicitud</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/tierras/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Solicitudes</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons charts" href="#menuAlimentacion">
+											<i></i>
+											<span>Com. Alimentaci&oacute;n</span>
+										</a>
+										<ul class="collapse" id="menuAlimentacion">
+											<li class="">
+												<a href="/alimentacion/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Denuncia</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/alimentacion/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Denuncias</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons picture" href="#menuTransporte">
+											<i></i>
+											<span>Com. Transporte</span>
+										</a>
+										<ul class="collapse" id="menuTransporte">
+											<li class="">
+												<a href="/transporte/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Pagos</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/transporte/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Pagos</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons cogwheels" href="#menuCultura">
+											<i></i>
+											<span>Educaci&oacute;n y Cultura</span>
+										</a>
+										<ul class="collapse" id="menuCultura">
+											<li class="">
+												<a href="/cultura/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Solicitud</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/cultura/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Solicitudes</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menuEconomia">
+											<i></i>
+											<span>Economia Popular</span>
+										</a>
+										<ul class="collapse" id="menuEconomia">
+											<li class="">
+												<a href="/economia/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Solicitud</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/economia/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Solicitudes</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+
+									<li class="hasSubmenu2">
+										<a data-toggle="collapse" class="glyphicons sort" href="#menuIS">
+											<i></i>
+											<span>Igualdad Social</span>
+										</a>
+										<ul class="collapse" id="menuIS">
+											<li class="">
+												<a href="/is/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Solicitud</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/is/lista" class="glyphicons user">
+													<i></i>
+													<span>Lista de Solicitudes</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+
+
+									
+
+
+									
 								</ul>
 							</div>
 							<span class="navarrow hide">
@@ -136,7 +340,7 @@
 								</ul>
 								<div class="separator"></div>
 
-								<h2 class="glyphicons display"><i></i> Administracion</h2>
+								<h2 class="glyphicons show_thumbnails_with_lines"><i></i> @comite</h2>
 								<div class="separator"></div>
 
 								@content
@@ -225,6 +429,7 @@
 	
 	
 	<!-- Custom Onload Script -->
+	<script src="@routes.Assets.at("javascripts/ajax.js")"></script>
 	<script src="@routes.Assets.at("template/theme/scripts/load.js")"></script>
 
 </body>

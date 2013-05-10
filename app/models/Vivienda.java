@@ -22,8 +22,7 @@ public class Vivienda extends Model {
 	public String solicitud;
 	
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fechaSol;
+	public String fechaSol;
 
 	public String rehabilitacion;
 }

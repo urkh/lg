@@ -2,6 +2,34 @@
 font-family: 'Open Sans';
 src: url('../fonts/OpenSans-Regular.ttf');
 }
+
+
+#actions {
+    position: relative;
+}
+
+#actions #add {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+#pagination {
+    position: relative;
+}
+
+#pagination ul {
+    position: absolute;
+    right: 0;
+}
+
+#pagination ul .current a {
+    color: #666;
+}
+
+
+
 .hideText{text-indent:-999em;letter-spacing:-999em;overflow:hidden;}
 *,a:focus{outline:none !important;}
 button:focus{outline:none !important;}

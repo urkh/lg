@@ -4,38 +4,38 @@
 # --- !Ups
 
 create table agua (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
   monto                     double,
-  fecha_pago                timestamp,
-  mes_correspondiente       timestamp,
+  fecha_pago                varchar(255),
+  mes_correspondiente       varchar(255),
   constraint pk_agua primary key (id))
 ;
 
 create table alimentacion (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
   denuncia                  varchar(255),
-  fecha                     timestamp,
+  fecha                     datetime,
   denunciado                varchar(255),
   constraint pk_alimentacion primary key (id))
 ;
 
 create table cultura (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   h_personas_id             bigint,
   t_pantalon                varchar(255),
   t_franelas                varchar(255),
   t_zapatos                 varchar(255),
   utiles                    varchar(255),
-  fecha                     timestamp,
+  fecha                     varchar(255),
   constraint pk_cultura primary key (id))
 ;
 
 create table economia (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
-  fecha                     timestamp,
+  fecha                     datetime,
   solicitud                 varchar(255),
   tipo_sol                  varchar(255),
   empresa                   varchar(255),
@@ -45,12 +45,12 @@ create table economia (
 ;
 
 create table hijos_personas (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
   cedula                    integer,
   nombre                    varchar(255),
   apellido                  varchar(255),
-  fecha_nac                 timestamp,
+  fecha_nac                 datetime,
   sexo                      varchar(255),
   discapacidad              varchar(255),
   grado                     varchar(255),
@@ -58,19 +58,19 @@ create table hijos_personas (
 ;
 
 create table igualdad_social (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
   tipo_ayuda                varchar(255),
-  fecha                     timestamp,
+  fecha                     datetime,
   constraint pk_igualdad_social primary key (id))
 ;
 
 create table persona (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   cedula                    integer,
   nombre                    varchar(255),
   apellido                  varchar(255),
-  fecha_nac                 timestamp,
+  fecha_nac                 varchar(255),
   sexo                      varchar(255),
   direccion                 varchar(255),
   telefono                  varchar(255),
@@ -82,9 +82,9 @@ create table persona (
 ;
 
 create table salud (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
-  fecha                     timestamp,
+  fecha                     varchar(255),
   enfermedad                varchar(255),
   medicamentos              varchar(255),
   tipo_op                   varchar(255),
@@ -93,42 +93,22 @@ create table salud (
 ;
 
 create table transporte (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   h_personas_id             bigint,
   monto                     double,
-  fecha_pago                timestamp,
-  mes_correspondiente       timestamp,
+  fecha_pago                datetime,
+  mes_correspondiente       datetime,
   constraint pk_transporte primary key (id))
 ;
 
 create table vivienda (
-  id                        bigint not null,
+  id                        bigint auto_increment not null,
   persona_id                bigint,
   solicitud                 varchar(255),
-  fecha_sol                 timestamp,
+  fecha_sol                 varchar(255),
   rehabilitacion            varchar(255),
   constraint pk_vivienda primary key (id))
 ;
-
-create sequence agua_seq;
-
-create sequence alimentacion_seq;
-
-create sequence cultura_seq;
-
-create sequence economia_seq;
-
-create sequence hijos_personas_seq;
-
-create sequence igualdad_social_seq;
-
-create sequence persona_seq;
-
-create sequence salud_seq;
-
-create sequence transporte_seq;
-
-create sequence vivienda_seq;
 
 alter table agua add constraint fk_agua_persona_1 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
 create index ix_agua_persona_1 on agua (persona_id);
@@ -153,47 +133,27 @@ create index ix_vivienda_persona_9 on vivienda (persona_id);
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+SET FOREIGN_KEY_CHECKS=0;
 
-drop table if exists agua;
+drop table agua;
 
-drop table if exists alimentacion;
+drop table alimentacion;
 
-drop table if exists cultura;
+drop table cultura;
 
-drop table if exists economia;
+drop table economia;
 
-drop table if exists hijos_personas;
+drop table hijos_personas;
 
-drop table if exists igualdad_social;
+drop table igualdad_social;
 
-drop table if exists persona;
+drop table persona;
 
-drop table if exists salud;
+drop table salud;
 
-drop table if exists transporte;
+drop table transporte;
 
-drop table if exists vivienda;
+drop table vivienda;
 
-SET REFERENTIAL_INTEGRITY TRUE;
-
-drop sequence if exists agua_seq;
-
-drop sequence if exists alimentacion_seq;
-
-drop sequence if exists cultura_seq;
-
-drop sequence if exists economia_seq;
-
-drop sequence if exists hijos_personas_seq;
-
-drop sequence if exists igualdad_social_seq;
-
-drop sequence if exists persona_seq;
-
-drop sequence if exists salud_seq;
-
-drop sequence if exists transporte_seq;
-
-drop sequence if exists vivienda_seq;
+SET FOREIGN_KEY_CHECKS=1;
 

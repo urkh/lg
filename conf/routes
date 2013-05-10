@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-#GET     /                           controllers.Application.index()
+GET     /login                           controllers.Index.index()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
@@ -11,4 +11,24 @@ GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # CRUD registro de ciudadanos
 GET     /ciudadanos/nuevo              	controllers.CPersona.nuevo()
-POST    /ciudadanos/guardar            	controllers.CPersona.guardar()
+POST    /ciudadanos/guardar         	controllers.CPersona.guardar()
+
+
+GET 	/buscarCedula 					controllers.CPersona.buscarCedula()
+
+
+
+# registro solicitudes salud
+GET     /salud/nuevo              	controllers.CSalud.nuevo()
+POST    /salud/guardar             	controllers.CSalud.guardar()
+GET 	/salud/lista 				controllers.CSalud.listar(p:Int ?= 0, s ?= "enfermedad", o ?= "asc", busqueda ?= "")
+
+
+# registro solicitudes vivienda
+GET     /vivienda/nuevo              	controllers.CVivienda.nuevo()
+POST    /vivienda/guardar             	controllers.CVivienda.guardar()
+
+
+# agua
+GET     /agua/nuevo              	controllers.CAgua.nuevo()
+POST    /agua/guardar             	controllers.CAgua.guardar()

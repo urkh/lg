@@ -32,8 +32,7 @@ public class Cultura extends Model {
 	public String utiles;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fecha;
+	public String fecha;
 
 
 

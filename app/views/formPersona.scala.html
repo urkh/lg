@@ -1,7 +1,7 @@
 @(formPersona: Form[Persona])
 @import helper._
 
-@main{
+@main(comite="Registro de Ciudadanos"){
 
 @if(flash.containsKey("exito")) {
         <div class="alert alert-success">
@@ -22,7 +22,7 @@
 						<div class="control-group">
 							<label class="control-label" for="cedula">Cedula</label>
 							<div class="controls">
-								<input class="span12" id="cedula" name="cedula" type="text" />
+								<input class="span10" id="cedula" name="cedula" type="text" />
 							</div>
 						</div>
 
@@ -50,7 +50,8 @@
 						<div class="control-group">
 							<label class="control-label" for="sexo">G&eacute;nero</label>
 							<div class="controls">
-								<select name="sexo" id="sexo" class="span12">
+								<select name="sexo" id="sexo" class="span10">
+									<option value="" />
 									<option value="Masculino" />Masculino
 									<option value="Femenino" />Femenino
 								</select>
@@ -86,7 +87,8 @@
 						<div class="control-group">
 							<label class="control-label" for="gradoInstruccion">Grado de Instrucci&oacute;n</label>
 							<div class="controls">
-								<select name="gradoInstruccion" id="gradoInstruccion" class="span12">
+								<select name="gradoInstruccion" id="gradoInstruccion" class="span10">
+									<option value="" />
 									<option value="Sin estudios" />Sin estudios
 									<option value="Primaria" />Primaria
 									<option value="Bachiller" />Bachiller
@@ -98,7 +100,7 @@
 						<div class="control-group">
 							<label class="control-label" for="ingresoMensual">Ingreso Mensual</label>
 							<div class="controls">
-								<input class="span12" id="ingresoMensual" name="ingresoMensual" type="text" />
+								<input class="span10" id="ingresoMensual" name="ingresoMensual" type="text" />
 							</div>
 						</div>
 

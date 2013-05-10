@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.*;
 
 import play.data.validation.*;
-import play.data.format.*;
 
 import play.db.ebean.*;
 
@@ -25,11 +24,10 @@ public class Persona extends Model {
 	public String apellido;
 	
 	@Constraints.Required
-	@Formats.DateTime(pattern = "yyyy-mm-dd")
-	public Date fechaNac;
+	public String fechaNac;
 	
 	@Constraints.Required
-	public Character sexo;
+	public String sexo;
 	
 	@Constraints.Required
 	public String direccion;
@@ -46,7 +44,7 @@ public class Persona extends Model {
 	public String estadoCivil;
 	
 	@Constraints.Required
-	public Character tipoVivienda;
+	public String tipoVivienda;
 	
 
 	

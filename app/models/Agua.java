@@ -22,12 +22,10 @@ public class Agua extends Model {
 	public Double monto;
 	
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fechaPago;
+	public String fechaPago;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date mesCorrespondiente;
+	public String mesCorrespondiente;
 
 	
 

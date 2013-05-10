@@ -8,6 +8,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.avaje.ebean.Page;
+
 @Entity
 public class Salud extends Model {
 
@@ -19,8 +21,7 @@ public class Salud extends Model {
 	public Persona persona;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fecha;
+	public String fecha;
 
 	public String enfermedad;
 
@@ -29,6 +30,14 @@ public class Salud extends Model {
 	public String tipoOp;
 
 	public String tiempoEnf;
+
+
+	public static Finder<Long, Salud> buscar = new Finder<Long, Salud>(Long.class, Salud.class);
+
+
+	public static Page<Salud> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
+		return buscar.where().ilike("persona.cedula", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("persona").findPagingList(tamanoPagina).getPage(pagina);
+	}
 
 
 

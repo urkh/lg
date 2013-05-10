@@ -25,14 +25,35 @@ $(function()
 	$("#validarForm").validate({
 		rules: {
 
+
+			nombre: "required",
+			apellido: "required",
+			requerido: "required",
+			direccion: "required",
+			fechaNac: "required",
+			gradoInstruccion: "required",
+			estadoCivil: "required",
+			tipoVivienda: "required",
+			sexo: "required",
+
 			cedula: {
 				number:true,
 				required: true,
 				minlength: 6,
 				maxlength: 8
 			},
-			nombre: "required",
-			apellido: "required",
+
+			telefono: {
+				number:true,
+				minlength: 11,
+				maxlength: 11
+			},
+
+			ingresoMensual: {
+				number:true,
+				required: true
+			},
+
 			username: {
 				required: true,
 				minlength: 2
@@ -57,20 +78,39 @@ $(function()
 			agree: "required"
 		},
 		messages: {
+
+			nombre: "Este campo es obligatorio",
+			apellido: "Este campo es obligatorio",
+			direccion: "Este campo es obligatorio",
+			fechaNac: "Este campo es obligatorio",
+			sexo: "Este campo es obligatorio",
+			
+			gradoInstruccion: "Este campo es obligatorio",
+			tipoVivienda: "Este campo es obligatorio",
+			estadoCivil: "Este campo es obligatorio",
+
+			ingresoMensual:{ 
+				number: "Debe ingresar solo numeros",
+				required: "Este campo es obligatorio"
+			},
+
+
+
 			cedula: {
 				number: "Debe ingresar solo numeros",
 				required: "Debe ingresar una cedula",
 				minlength: "Minimo 6 caracteres",
 				maxlength: "Maximo 8 caracteres"
 			},
-			
-			nombre: "Debe ingresar un nombre",
-			apellido: "Ingrese el apellido",
-			
-			username: {
-				required: "Please enter a username",
-				minlength: "Your username must consist of at least 2 characters"
+
+			telefono: {
+				number: "Debe ingresar solo numeros",
+				minlength: "Minimo 11 caracteres",
+				maxlength: "Maximo 11 caracteres"
 			},
+
+
+
 			password: {
 				required: "Please provide a password",
 				minlength: "Your password must be at least 5 characters long"
@@ -85,14 +125,6 @@ $(function()
 		}
 	});
 
-	// propose username by combining first- and lastname
-	$("#username").focus(function() {
-		var firstname = $("#firstname").val();
-		var lastname = $("#lastname").val();
-		if(firstname && lastname && !this.value) {
-			this.value = firstname + "." + lastname;
-		}
-	});
 
 	//code to hide topic selection, disable for demo
 	var newsletter = $("#newsletter");

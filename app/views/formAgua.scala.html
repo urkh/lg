@@ -1,0 +1,125 @@
+@(formAgua: Form[Agua])
+@import helper._
+
+@main(comite = "Comite de Agua"){
+
+@if(flash.containsKey("exito")) {
+        <div class="alert alert-success">
+            <strong>Hecho!</strong> @flash.get("exito")
+        </div>
+} 
+
+
+
+
+						<div align="center" class="control-group input-append">
+						 	<label class="control-label" for="Ciudadano">Ciudadano a buscar</label>
+						 	<div class="controls">
+							    <input id="cedula" class="span8" id="appendedInputButton" type="text">
+							    <button id="buscarCedula" rel="tooltip" data-placement="right" title="Ingrese una cedula a buscar" class="btn btn-primary" type="submit">Buscar</button>
+							</div>
+						</div>
+
+
+
+
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/agua/guardar" autocomplete="off" />
+
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="well" style="padding-bottom: 10px;">
+				<h4>Pago de Aguas</h4>
+				<hr class="separator" />
+				<div class="row-fluid">
+					<div class="span6">
+
+
+
+
+						<input type="hidden" name="persona.id" id="persona.id" value="">
+
+
+						<div class="control-group">
+							<label class="control-label" for="nombre">Nombre</label>
+							<div class="controls">
+								<input class="span8" readOnly type="text" id="nombre" name="nombre" value="" />
+							</div>
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="apellido">Apellido</label>
+							<div class="controls">
+								<input class="span8" readOnly id="apellido" name="apellido" type="text" />
+							</div>
+						</div>
+
+
+						
+
+						<div class="control-group">
+							<label class="control-label" for="fechaPago">Fecha de Pago</label>
+							<div class="controls">
+								<input class="span10" type="text" id="datepicker" name="fechaPago" value="" />
+							</div>
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="mesCorrespondiente">Mes Correspondiente</label>
+							<div class="controls">
+								<input class="span10" type="text" id="datepicker" name="mesCorrespondiente" value="" />
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="monto">Monto</label>
+							<div class="controls">
+								<input class="span8" id="monto" name="monto" type="text" />
+							</div>
+						</div>
+
+
+
+					</div>
+
+						
+				</div>
+			</div>
+
+			<div class="form-actions">
+					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+						<i></i>Guardar
+					</button>
+					<button type="button" class="btn btn-icon btn-default glyphicons circle_remove">
+						<i></i>Cancelar
+					</button>
+				</div><br/><br/><br/><br/>
+			</div>
+
+		</div>
+	</div>
+
+</form>
+
+<script>
+
+
+var $solicitud = $('#solicitud'), $rehabilitacion = $('#rehabilitacion');
+$solicitud.change(function () {
+    if ($solicitud.val() == 'Rehabilitacion') {
+        $rehabilitacion.removeAttr('disabled');
+    } else {
+        $rehabilitacion.attr('disabled', 'disabled').val('');
+    }
+}).trigger('change');
+                
+        
+</script>
+
+
+
+}
