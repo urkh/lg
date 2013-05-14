@@ -10,6 +10,7 @@ import play.db.DB;
 import play.libs.Json;
 
 import views.html.formPersona;
+import views.html.listaPersona;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,6 +29,10 @@ public class CPersona extends Controller {
 
 	public static Result index() {
 		return Inicio;
+	}
+
+	public static Result listar(int pagina, String ordenarPor, String orden, String filtro) {
+		return ok(listaPersona.render(Persona.pagina(pagina, 10, ordenarPor, orden, filtro), ordenarPor, orden, filtro));
 	}
 
 

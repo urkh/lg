@@ -18,15 +18,13 @@ public class Economia extends Model {
 	public Persona persona;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fecha;
+	public String fecha;
 
 	//empleo, curso o postulacion
 	@Constraints.Required
 	public String solicitud;
 
 	//empleo o curso a realizar
-	@Constraints.Required
 	public String tipoSol;
 
 	public String empresa;

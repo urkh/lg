@@ -10,6 +10,31 @@ var cedula = $("#cedula").val();
             window.alert('Error: ' + data.responseText);
         });
 });
+
+
+
+$('#buscarCedulaH').click(function(){
+
+	var cedula = $("#cedula").val();
+
+
+	$.getJSON('/buscarCedulaH?busqueda='+cedula, function(data){
+		var toAppend = "<option></option>";
+  		for(var i = 0; i < data.length; i++){
+      		toAppend += '<option value = \"' + data[i].idHijo + '\">' + data[i].nombre +"  "+ data[i].apellido + '</option>';
+  		}
+
+  		
+  		$("#hijos").empty();
+  		$("#hijos").html(toAppend);
+	}, "json").error(function(data) {
+        window.alert('Error: ' + data.responseText);
+    });;
+
+
+});
+
+
   
     
 }); 

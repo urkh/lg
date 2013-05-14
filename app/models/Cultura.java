@@ -8,6 +8,9 @@ import play.db.ebean.*;
 import play.data.validation.*;
 import play.data.format.*;
 
+
+import com.avaje.ebean.Page;
+
 @Entity
 public class Cultura extends Model {
 
@@ -17,7 +20,7 @@ public class Cultura extends Model {
 
 	@Constraints.Required
 	@ManyToOne
-	public HijosPersonas hPersonas;
+	public Hijos hijos;
 
 	@Constraints.Required
 	public String tPantalon;
@@ -28,11 +31,19 @@ public class Cultura extends Model {
 	@Constraints.Required
 	public String tZapatos;
 
-	@Constraints.Required
 	public String utiles;
 
 	@Constraints.Required
 	public String fecha;
+
+
+	public static Finder<Long, Cultura> buscar = new Finder<Long, Cultura>(Long.class, Cultura.class);
+
+
+	public static Page<Cultura> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
+		return buscar.where().ilike("hijos.cedulaH", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("hijos").findPagingList(tamanoPagina).getPage(pagina);
+	}
+
 
 
 

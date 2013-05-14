@@ -7,6 +7,7 @@ import play.db.ebean.*;
 import javax.persistence.*;
 
 import java.util.*;
+import com.avaje.ebean.Page;
 
 
 @Entity
@@ -18,17 +19,23 @@ public class Transporte extends Model {
 
 	@Constraints.Required
 	@ManyToOne
-	public HijosPersonas hPersonas;
+	public Hijos hijos;
 
 	@Constraints.Required
 	public Double monto;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fechaPago;
+	public String fechaPago;
 
 	@Constraints.Required
-	public Date mesCorrespondiente;
+	public String mesCorrespondiente;
+
+	public static Finder<Long, Transporte> buscar = new Finder<Long, Transporte>(Long.class, Transporte.class);
+
+
+	public static Page<Transporte> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
+		return buscar.where().ilike("hijos.cedulaH", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("hijos").findPagingList(tamanoPagina).getPage(pagina);
+	}
 
 
 

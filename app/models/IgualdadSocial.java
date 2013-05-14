@@ -23,7 +23,6 @@ public class IgualdadSocial extends Model {
 	public String tipoAyuda;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fecha;
+	public String fecha;
 
 }

@@ -1,0 +1,167 @@
+@(formCultura: Form[Cultura])
+@import helper._
+
+@main(comite = "Comite de Educacion y Cultura", com="educacion"){
+
+@if(flash.containsKey("exito")) {
+        <div class="alert alert-success">
+            <strong>Hecho!</strong> @flash.get("exito")
+        </div>
+} 
+
+
+
+
+	<div align="center" class="control-group input-append">
+	 	<label class="control-label" for="Ciudadano">Cedula representante</label>
+		<div class="controls">
+			<input id="cedula" class="span3" type="text">
+			<button id="buscarCedulaH" rel="tooltip" data-placement="right" title="Ingrese una cedula a buscar" class="btn btn-primary" type="submit">Buscar</button>
+		</div>
+		<select name="hijos" id="hijos" class="span2" onChange="combo(this);"></select>
+	</div>
+
+
+
+
+
+
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/cultura/guardar" autocomplete="off" />
+
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="well" style="padding-bottom: 10px;">
+				<h4>Solicitud de Uniformes</h4>
+				<hr class="separator" />
+				<div class="row-fluid">
+					<div class="span6">
+
+
+						<input type="hidden" name="hijos.id" id="hijos.id" value="">
+
+
+						<h5>Datos del Estudiante</h5>
+						<hr class="separator" />
+
+						<div class="control-group">
+							<label class="control-label" for="estudiante">Nombre y Apellido</label>
+							<div class="controls">
+								<input class="span8" readOnly id="estudiante" name="estudiante" type="text" />
+							</div>
+						</div>
+
+
+						<h5>Datos de la Solicitud</h5>
+						<hr class="separator" />
+						<div class="control-group">
+							<label class="control-label" for="tPantalon">Talla de Pantalon</label>
+							<div class="controls">
+								<input class="span8" id="tPantalon" name="tPantalon" type="text" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="tFranelas">Talla de Franelas</label>
+							<div class="controls">
+								<input class="span8" id="tFranelas" name="tFranelas" type="text" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="tZapatos">Talla de Zapatos</label>
+							<div class="controls">
+								<input class="span8" id="tZapatos" name="tZapatos" type="text" />
+							</div>
+						</div>
+
+
+
+
+
+
+
+					</div>
+
+					<div class="span6">
+
+						<h5>Otros datos</h5>
+						<hr class="separator" />
+
+						<div class="control-group">
+							<label class="control-label">Requiere utiles escolares?</label>
+							<div class="controls">
+							    <input type="checkbox" name="c1" onclick="mostrar('formOp', this)"> 
+							</div>
+						</div>
+
+						<div id="formOp" style="display:none">
+							<div class="control-group input-append date">
+								<label class="control-label" for="utiles">Lista de utiles</label>
+								<div class="controls">
+									<textarea rows="3" class="span12" id="utiles" name="utiles" type="text" ></textarea>
+								</div>
+							</div>
+
+						</div>
+
+
+
+						<div class="control-group input-append date">
+							<label class="control-label" for="fecha">Fecha de Pago</label>
+							<div class="controls">
+								<input class="span12" readOnly id="datepicker2" name="fecha" type="text" />
+							</div>
+						</div>
+
+
+
+
+					</div>
+						
+				</div>
+			</div>
+
+			<div class="form-actions">
+					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+						<i></i>Guardar
+					</button>
+					<button type="button" class="btn btn-icon btn-default glyphicons circle_remove">
+						<i></i>Cancelar
+					</button>
+				</div><br/><br/><br/><br/>
+			</div>
+
+		</div>
+	</div>
+
+</form>
+
+<script>
+
+function mostrar (it, box) {
+    var vis = (box.checked) ? "block" : "none";
+    document.getElementById(it).style.display = vis;
+}
+
+
+function combo(t){
+    var y=document.getElementById("hijos.id");
+    y.value = t.value;
+
+
+    var combo = document.getElementById("hijos");
+	var selected = combo.options[combo.selectedIndex].text;
+	var na=document.getElementById("estudiante");
+	na.value=selected;
+}   
+
+$(function(){
+
+	$('#datepicker2').datepicker();
+	$('#datepicker1').datepicker();
+
+});
+
+</script>
+
+}

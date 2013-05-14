@@ -1,4 +1,4 @@
-@(paginaActual: Page[Salud], currentSortBy: String, currentOrder: String, currentFilter: String)
+@(paginaActual: Page[Transporte], currentSortBy: String, currentOrder: String, currentFilter: String)
 @import helper._
 
 @link(newPage:Int, newSortBy:String) = @{
@@ -19,7 +19,7 @@
         }
     }
     
-    routes.CSalud.listar(newPage, sortBy, order, currentFilter)
+    routes.CTransporte.listar(newPage, sortBy, order, currentFilter)
     
 }
 
@@ -31,7 +31,7 @@
     </th>
 }
 
-@main(comite = "Lista de Solicitudes", com="salud") {
+@main(comite = "Lista de Pagos", com="transporte") {
 
 
     @if(flash.containsKey("exito")) {
@@ -51,7 +51,7 @@
         </div>
         </form>
         
-        <a rel="tooltip" data-placement="left" title="Realizar Nueva Solicitud" class="btn btn-success" id="add" href="/salud/nuevo">Nueva</a>
+        <a rel="tooltip" data-placement="left" title="Realizar Nuevo Pago" class="btn btn-success" id="add" href="/transporte/nuevo">Nuevo Pago</a>
         
     </div>
     
@@ -67,12 +67,11 @@
             <thead>
                 <tr>
                     <th class="reporte header" width="30"><a>PDF</a></th>
-                    @header("persona.cedula", "Cedula")
-                    @header("persona.nombre", "Ciudadano")
-                    @header("fecha", "Fecha")
-                    @header("enfermedad", "Enfermedad")
-                    @header("medicamentos", "Medicamentos")
-                    @header("tipoOp", "Operacion")
+                    @header("hijos.cedulaH", "Cedula")
+                    @header("hijos.nombreH", "Estudiante")
+                    @header("fechaPago", "Fecha")
+                    @header("mesCorrespondiente", "Pago del Mes")
+                    @header("monto", "Monto")
 
                     
                     
@@ -80,42 +79,39 @@
             </thead>
             <tbody>
 
-                @for(salud <- paginaActual.getList) {
+                @for(transporte <- paginaActual.getList) {
                     <tr>
 
                          <td>
                             <a href="#"><i class="icon-th-list"></i></a>
                         </td>
                     
-                    
 
                         <td>
-                            <a href="#" rel="tooltip" data-placement="bottom" title="@salud.persona.cedula">@salud.persona.cedula</a>
+                            <a href="#" rel="tooltip" data-placement="bottom" title="@transporte.hijos.cedulaH">@transporte.hijos.cedulaH</a>
                         </td>
                     
                         <td>
                          
-                            <span rel="tooltip" data-placement="bottom" title="@salud.persona.nombre @salud.persona.apellido">@salud.persona.nombre @salud.persona.apellido</span>
+                            <span rel="tooltip" data-placement="bottom" title="@transporte.hijos.nombreH">@transporte.hijos.nombreH @transporte.hijos.apellidoH</span>
                                 
                         </td>
 
                         
                         <td>
-                            <span rel="tooltip" data-placement="bottom" title="@salud.fecha">@salud.fecha</span>
+                            <span rel="tooltip" data-placement="bottom" title="@transporte.fechaPago">@transporte.fechaPago</span>
                         </td>
-                        
-                         <td>
-                            <span rel="tooltip" data-placement="bottom" title="@salud.enfermedad">@salud.enfermedad</span>   
+
+
+                        <td>
+                            <span rel="tooltip" data-placement="bottom" title="@transporte.mesCorrespondiente">@transporte.mesCorrespondiente</span>
                         </td>
 
                         <td>
-                            <span rel="tooltip" data-placement="bottom" title="@salud.medicamentos">@salud.medicamentos</span>   
+                            <span rel="tooltip" data-placement="bottom" title="@transporte.monto">@transporte.monto</span>
                         </td>
                         
-
-                        <td>
-                            <span rel="tooltip" data-placement="bottom" title="@salud.tipoOp">@salud.tipoOp</span>   
-                        </td>
+                        
                         
 
                     </tr>

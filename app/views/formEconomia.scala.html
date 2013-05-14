@@ -1,7 +1,7 @@
-@(formVivienda: Form[Vivienda])
+@(formEconomia: Form[Economia])
 @import helper._
 
-@main(comite = "Comite de viviendas", com="vivienda"){
+@main(comite = "Comite de Economia Popular", com="economia"){
 
 @if(flash.containsKey("exito")) {
         <div class="alert alert-success">
@@ -23,7 +23,7 @@
 
 
 
- <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/vivienda/guardar" autocomplete="off" />
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/economia/guardar" autocomplete="off" />
 
 	<div class="row-fluid">
 		<div class="span12">
@@ -61,7 +61,7 @@
 						<div class="control-group">
 							<label class="control-label" for="fechaSol">Fecha</label>
 							<div class="controls">
-								<input class="span10" type="text" id="datepicker" name="fechaSol" value="" />
+								<input class="span10" type="text" id="datepicker" name="fecha" value="" />
 							</div>
 						</div>
 
@@ -71,20 +71,48 @@
 							<div class="controls">
 								<select name="solicitud" id="solicitud" class="span10">
 									<option value="" />
-									<option value="Vivienda" />Solicitud de Vivienda
-									<option value="Rehabilitacion" />Solicitud de Rehabilitacion
+									<option value="Curso" />Curso
+									<option value="Empleo" />Empleo
+									<option value="Postulacion" />Postulacion
 								</select>
 							</div>
 						</div>
 
 
-						<div class="control-group" id="rehabilitacion" style="display:none;">
-							<label class="control-label" for="rehabilitacion">Tipo de Rehabilitaci&oacute;n</label>
+
+						<div class="control-group" id="tipoSol" style="display:none;">
+							<label class="control-label" for="tipoSol">Tipo</label>
 							<div class="controls">
-								<input class="span8" id="rehabilitacion" name="rehabilitacion" type="text" />
+								<input type="text" name="tipoSol" id="tipoSol" placeholder="Tipo de curso o empleo" />
 							</div>
 						</div>
 
+						<div class="control-group" id="empresa" style="display:none;">
+							<label class="control-label" for="empresa">Empresa</label>
+							<div class="controls">
+								<input type="text" name="empresa" id="empresa" />
+							</div>
+						</div>
+
+						<div class="control-group" id="turno" style="display:none;">
+							<label class="control-label" for="turno">Turno</label>
+							<div class="controls">
+								<select name="turno" id="turno" class="span8">
+									<option value="" />
+									<option value="Ma&ntilde;ana" />Ma&ntilde;ana
+									<option value="Tarde" />Tarde
+									<option value="Noche" />Noche
+								</select>
+							</div>
+						</div>
+
+
+						<div class="control-group" id="dias" style="display:none;">
+							<label class="control-label" for="dias">Dias</label>
+							<div class="controls">
+								<input type="text" name="dias" id="dias"/>
+							</div>
+						</div>
 
 
 					</div>
@@ -113,17 +141,34 @@
 
 
 
+
 $('#solicitud').on('change',function(){
     
 
-    if( $(this).val()==="Rehabilitacion"){
-    	$("#rehabilitacion").show()
-    }else {
-  		$("#rehabilitacion").hide()
+    if( $(this).val()==="Curso"){
+    	$("#tipoSol").show()
+    	$("#turno").show()
+    	$("#dias").show()
+    	$("#empresa").hide()
+    }else if( $(this).val()==="Empleo"){
+  		$("#tipoSol").show()
+  		$("#turno").hide()
+    	$("#dias").hide()
+    	$("#empresa").hide()
+    }else if( $(this).val()==="Postulacion"){
+  		$("#tipoSol").show()
+  		$("#empresa").show()
+  		$("#turno").hide()
+    	$("#dias").hide()
     }
 
-});
-                
+    
+  
+
+
+
+
+});            
         
 </script>
 

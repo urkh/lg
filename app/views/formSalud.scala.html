@@ -1,7 +1,7 @@
 @(formSalud: Form[Salud])
 @import helper._
 
-@main(comite="Comite de Salud"){
+@main(comite="Comite de Salud", com="salud"){
 
 @if(flash.containsKey("exito")) {
         <div class="alert alert-success">
@@ -15,7 +15,7 @@
 						<div align="center" class="control-group input-append">
 						 	<label class="control-label" for="Ciudadano">Ciudadano a buscar</label>
 						 	<div class="controls">
-							    <input id="cedula" class="span8" id="appendedInputButton" type="text">
+							    <input id="cedula" class="span3" id="appendedInputButton" type="text">
 							    <button id="buscarCedula" rel="tooltip" data-placement="right" title="Ingrese una cedula a buscar" class="btn btn-primary" type="submit">Buscar</button>
 							</div>
 						</div>
