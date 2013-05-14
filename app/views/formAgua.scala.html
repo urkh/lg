@@ -61,7 +61,7 @@
 						<div class="control-group">
 							<label class="control-label" for="fechaPago">Fecha de Pago</label>
 							<div class="controls">
-								<input class="span10" type="text" id="datepicker" name="fechaPago" value="" />
+								<input class="span10" type="text" id="datepicker2" name="fechaPago" value="" />
 							</div>
 						</div>
 
@@ -70,7 +70,7 @@
 						<div class="control-group">
 							<label class="control-label" for="mesCorrespondiente">Mes Correspondiente</label>
 							<div class="controls">
-								<input class="span10" type="text" id="datepicker" name="mesCorrespondiente" value="" />
+								<input class="span10" type="text" id="datepicker1" name="mesCorrespondiente" value="" />
 							</div>
 						</div>
 
@@ -117,6 +117,15 @@ $solicitud.change(function () {
     }
 }).trigger('change');
                 
+
+
+$(function(){
+
+	$('#datepicker2').datepicker();
+	$('#datepicker1').datepicker();
+
+});
+
         
 </script>
 

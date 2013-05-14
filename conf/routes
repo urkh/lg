@@ -14,8 +14,8 @@ GET     /ciudadanos/nuevo              	controllers.CPersona.nuevo()
 POST    /ciudadanos/guardar         	controllers.CPersona.guardar()
 GET 	/ciudadanos/lista 				controllers.CPersona.listar(p:Int ?= 0, s ?= "cedula", o ?= "asc", busqueda ?= "")
 
-GET     /hijos/nuevo              	controllers.CHijos.nuevo()
-POST    /hijos/guardar	         	controllers.CHijos.guardar()
+GET     /hijos/nuevo              		controllers.CHijos.nuevo()
+POST    /hijos/guardar	         		controllers.CHijos.guardar()
 
 
 GET 	/buscarCedula 					controllers.CPersona.buscarCedula()
@@ -38,6 +38,7 @@ GET 	/vivienda/lista 				controllers.CVivienda.listar(p:Int ?= 0, s ?= "persona.
 # agua
 GET     /agua/nuevo              	controllers.CAgua.nuevo()
 POST    /agua/guardar             	controllers.CAgua.guardar()
+GET 	/agua/lista 				controllers.CAgua.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
 
 # registro solicitudes economia
 GET     /economia/nuevo              	controllers.CEconomia.nuevo()

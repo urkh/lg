@@ -31,10 +31,22 @@ $(function()
 			requerido: "required",
 			direccion: "required",
 			fechaNac: "required",
+			fecha: "required",
+			fechaPago: "required",
+			fechaSol: "required",
 			gradoInstruccion: "required",
 			estadoCivil: "required",
+			medicamentos: "required",
 			tipoVivienda: "required",
+			solicitud: "required",
 			sexo: "required",
+			enfermedad: "required",
+			mesCorrespondiente: "required",
+			estudiante: "required",
+
+			tPantalon: "required",
+			tZapatos: "required",
+			tFranelas: "required",
 
 			cedula: {
 				number:true,
@@ -53,6 +65,12 @@ $(function()
 				number:true,
 				required: true
 			},
+
+			monto: {
+				number:true,
+				required: true
+			},
+
 
 			username: {
 				required: true,
@@ -79,17 +97,35 @@ $(function()
 		},
 		messages: {
 
+			solicitud: "Este campo es obligatorio",
 			nombre: "Este campo es obligatorio",
 			apellido: "Este campo es obligatorio",
 			direccion: "Este campo es obligatorio",
 			fechaNac: "Este campo es obligatorio",
+			mesCorrespondiente: "Este campo es obligatorio",
+			fechaPago: "Este campo es obligatorio",
+			fecha: "Este campo es obligatorio",
+			fechaSol: "Este campo es obligatorio",
 			sexo: "Este campo es obligatorio",
+			medicamentos: "Este campo es obligatorio",
+			enfermedad: "Este campo es obligatorio",
 			
 			gradoInstruccion: "Este campo es obligatorio",
 			tipoVivienda: "Este campo es obligatorio",
 			estadoCivil: "Este campo es obligatorio",
+			estudiante: "Este campo es obligatorio",
+
+			tZapatos: "Este campo es obligatorio",
+			tFranelas: "Este campo es obligatorio",
+			tPantalon: "Este campo es obligatorio",
 
 			ingresoMensual:{ 
+				number: "Debe ingresar solo numeros",
+				required: "Este campo es obligatorio"
+			},
+
+
+			monto:{ 
 				number: "Debe ingresar solo numeros",
 				required: "Este campo es obligatorio"
 			},
