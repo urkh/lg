@@ -43,10 +43,13 @@ $(function()
 			enfermedad: "required",
 			mesCorrespondiente: "required",
 			estudiante: "required",
+			denunciado: "required",
+			denuncia: "required",
 
 			tPantalon: "required",
 			tZapatos: "required",
 			tFranelas: "required",
+			tipoAyuda: "required",
 
 			cedula: {
 				number:true,
@@ -96,7 +99,8 @@ $(function()
 			agree: "required"
 		},
 		messages: {
-
+			denunciado: "Este campo es obligatorio",
+			denuncia: "Este campo es obligatorio",
 			solicitud: "Este campo es obligatorio",
 			nombre: "Este campo es obligatorio",
 			apellido: "Este campo es obligatorio",
@@ -109,6 +113,7 @@ $(function()
 			sexo: "Este campo es obligatorio",
 			medicamentos: "Este campo es obligatorio",
 			enfermedad: "Este campo es obligatorio",
+			tipoAyuda: "Este campo es obligatorio",
 			
 			gradoInstruccion: "Este campo es obligatorio",
 			tipoVivienda: "Este campo es obligatorio",

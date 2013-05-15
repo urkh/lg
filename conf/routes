@@ -43,7 +43,7 @@ GET 	/agua/lista 				controllers.CAgua.listar(p:Int ?= 0, s ?= "persona.cedula",
 # registro solicitudes economia
 GET     /economia/nuevo              	controllers.CEconomia.nuevo()
 POST    /economia/guardar             	controllers.CEconomia.guardar()
-#GET 	/economia/lista 				controllers.CEconomia.listar(p:Int ?= 0, s ?= "enfermedad", o ?= "asc", busqueda ?= "")
+GET 	/economia/lista 				controllers.CEconomia.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
 
 
 # registro solicitudes transporte
@@ -63,3 +63,14 @@ POST    /hijos/guardar             	controllers.CHijos.guardar()
 GET     /cultura/nuevo              	controllers.CCultura.nuevo()
 POST    /cultura/guardar             	controllers.CCultura.guardar()
 GET 	/cultura/lista 				controllers.CCultura.listar(p:Int ?= 0, s ?= "hijos.cedulaH", o ?= "asc", busqueda ?= "")
+
+# registro alimentacion
+GET     /alimentacion/nuevo              	controllers.CAlimentacion.nuevo()
+POST    /alimentacion/guardar             	controllers.CAlimentacion.guardar()
+GET 	/alimentacion/lista 				controllers.CAlimentacion.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
+
+
+# registro igualdad social
+GET     /is/nuevo              	controllers.CIS.nuevo()
+POST    /is/guardar             	controllers.CIS.guardar()
+GET 	/is/lista 				controllers.CIS.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")

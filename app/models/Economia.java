@@ -6,6 +6,7 @@ import play.data.format.*;
 
 import java.util.*;
 import javax.persistence.*;
+import com.avaje.ebean.Page;
 
 @Entity
 public class Economia extends Model {
@@ -32,6 +33,16 @@ public class Economia extends Model {
 	public String turno;
 
 	public String dias;
+
+
+	public static Finder<Long, Economia> buscar = new Finder<Long, Economia>(Long.class, Economia.class);
+
+
+	public static Page<Economia> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
+		return buscar.where().ilike("persona.cedula", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("persona").findPagingList(tamanoPagina).getPage(pagina);
+	}
+
+
 
 
 	

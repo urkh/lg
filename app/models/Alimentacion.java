@@ -7,6 +7,7 @@ import play.data.format.*;
 import javax.persistence.*;
 
 import java.util.*;
+import com.avaje.ebean.Page;
 
 
 @Entity
@@ -24,11 +25,20 @@ public class Alimentacion extends Model {
 	public String denuncia;
 
 	@Constraints.Required
-	@Formats.DateTime(pattern="yyyy-mm-dd")
-	public Date fecha;
+	public String fecha;
 
 	@Constraints.Required
 	public String denunciado;
+
+
+	public static Finder<Long, Alimentacion> buscar = new Finder<Long, Alimentacion>(Long.class, Alimentacion.class);
+
+
+	public static Page<Alimentacion> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
+		return buscar.where().ilike("persona.cedula", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("persona").findPagingList(tamanoPagina).getPage(pagina);
+	}
+
+	
 
 
 	

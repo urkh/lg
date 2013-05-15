@@ -16,7 +16,7 @@ create table alimentacion (
   id                        bigint auto_increment not null,
   persona_id                bigint,
   denuncia                  varchar(255),
-  fecha                     datetime,
+  fecha                     varchar(255),
   denunciado                varchar(255),
   constraint pk_alimentacion primary key (id))
 ;
@@ -55,19 +55,6 @@ create table hijos (
   discapacidad              varchar(255),
   grado                     varchar(255),
   constraint pk_hijos primary key (id))
-;
-
-create table hijos_personas (
-  id                        bigint auto_increment not null,
-  persona_id                bigint,
-  cedula                    integer,
-  nombre                    varchar(255),
-  apellido                  varchar(255),
-  fecha_nac                 datetime,
-  sexo                      varchar(255),
-  discapacidad              varchar(255),
-  grado                     varchar(255),
-  constraint pk_hijos_personas primary key (id))
 ;
 
 create table igualdad_social (
@@ -133,16 +120,14 @@ alter table economia add constraint fk_economia_persona_4 foreign key (persona_i
 create index ix_economia_persona_4 on economia (persona_id);
 alter table hijos add constraint fk_hijos_persona_5 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
 create index ix_hijos_persona_5 on hijos (persona_id);
-alter table hijos_personas add constraint fk_hijos_personas_persona_6 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
-create index ix_hijos_personas_persona_6 on hijos_personas (persona_id);
-alter table igualdad_social add constraint fk_igualdad_social_persona_7 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
-create index ix_igualdad_social_persona_7 on igualdad_social (persona_id);
-alter table salud add constraint fk_salud_persona_8 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
-create index ix_salud_persona_8 on salud (persona_id);
-alter table transporte add constraint fk_transporte_hijos_9 foreign key (hijos_id) references hijos (id) on delete restrict on update restrict;
-create index ix_transporte_hijos_9 on transporte (hijos_id);
-alter table vivienda add constraint fk_vivienda_persona_10 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
-create index ix_vivienda_persona_10 on vivienda (persona_id);
+alter table igualdad_social add constraint fk_igualdad_social_persona_6 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
+create index ix_igualdad_social_persona_6 on igualdad_social (persona_id);
+alter table salud add constraint fk_salud_persona_7 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
+create index ix_salud_persona_7 on salud (persona_id);
+alter table transporte add constraint fk_transporte_hijos_8 foreign key (hijos_id) references hijos (id) on delete restrict on update restrict;
+create index ix_transporte_hijos_8 on transporte (hijos_id);
+alter table vivienda add constraint fk_vivienda_persona_9 foreign key (persona_id) references persona (id) on delete restrict on update restrict;
+create index ix_vivienda_persona_9 on vivienda (persona_id);
 
 
 
@@ -159,8 +144,6 @@ drop table cultura;
 drop table economia;
 
 drop table hijos;
-
-drop table hijos_personas;
 
 drop table igualdad_social;
 
