@@ -1,19 +1,19 @@
 package controllers;
 
-import play.data.Form;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.*;
+import play.mvc.*;
+import play.data.*;
 
-import views.html.login;
+import views.html.index;
 
+
+//@Security.Authenticated(Secured.class)
 public class Index extends Controller {
 
 
-	public static Result index() {
+	public static Result inicio() {
 	//	return Inicio;
-		return ok(login.render());
+		return ok(index.render());
 	}
 
-
- 
 }

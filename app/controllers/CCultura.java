@@ -19,7 +19,7 @@ public class CCultura extends Controller {
 	}
 
 
-	public static Result Inicio = redirect(routes.CCultura.nuevo());
+	public static Result Inicio = redirect("/cultura/lista");
 
 	public static Result index() {
 		return Inicio;
@@ -30,6 +30,24 @@ public class CCultura extends Controller {
 		Form<Cultura> formRCultura = form(Cultura.class);
 		return ok(formCultura.render(formRCultura));
 	}
+
+
+	public static Result editar(Long id){
+		Form<Cultura> formRCultura = form(Cultura.class).fill(Cultura.buscar.byId(id));
+		return ok(formCultura.render(formRCultura));
+	}
+
+	public static Result actualizar(){
+		Form<Cultura> formRCultura = form(Cultura.class).bindFromRequest();
+
+		String ids = formRCultura.field("id").value();
+
+		Long id = Long.parseLong(ids);
+		formRCultura.get().update(id);
+		flash("exito", "Solicitud actualizada con exito");
+		return Inicio;
+	}
+
 
 
 	public static Result guardar(){

@@ -7,7 +7,7 @@ import play.data.format.*;
 import java.util.*;
 
 import javax.persistence.*;
-import com.avaje.ebean.Page;
+import com.avaje.ebean.*;
 
 @Entity
 public class Vivienda extends Model {
@@ -27,12 +27,21 @@ public class Vivienda extends Model {
 
 	public String rehabilitacion;
 
+	public String estado;
+
 
 	public static Finder<Long, Vivienda> buscar = new Finder<Long, Vivienda>(Long.class, Vivienda.class);
 
 
 	public static Page<Vivienda> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
 		return buscar.where().ilike("persona.cedula", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("persona").findPagingList(tamanoPagina).getPage(pagina);
+	}
+
+
+	public static List<Vivienda> listar(){
+		List<Vivienda> listar = Ebean.find(Vivienda.class).fetch("persona").findList();
+
+		return listar;
 	}
 
 

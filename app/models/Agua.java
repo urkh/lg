@@ -1,12 +1,12 @@
 package models;
 
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-import javax.persistence.*;
+import play.data.validation.Constraints;
+import play.db.ebean.Model;
 
-import play.db.ebean.*;
-import play.data.validation.*;
-import play.data.format.*;
 import com.avaje.ebean.Page;
 
 @Entity

@@ -18,9 +18,27 @@ public class CEconomia extends Controller {
 	}
 
 
-	public static Result Inicio = redirect(routes.CEconomia.nuevo());
+	public static Result Inicio = redirect("/economia/lista");
 
 	public static Result index() {
+		return Inicio;
+	}
+
+
+
+	public static Result editar(Long id){
+		Form<Economia> formREconomia = form(Economia.class).fill(Economia.buscar.byId(id));
+		return ok(formEconomia.render(formREconomia));
+	}
+
+	public static Result actualizar(){
+		Form<Economia> formREconomia = form(Economia.class).bindFromRequest();
+
+		String ids = formREconomia.field("id").value();
+
+		Long id = Long.parseLong(ids);
+		formREconomia.get().update(id);
+		flash("exito", "Solicitud actualizada con exito");
 		return Inicio;
 	}
 

@@ -1,3 +1,5 @@
+@(form: Form[Usuarios])
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -80,56 +82,44 @@
 									<span class="line"></span>
 									<div class="box-1 loginbox">
 										<div class="inner">
-											<form action="index.html" method="post" class="fts" />
+											<form method="POST" action="/login">
 												<fieldset>
 													<legend>Area Restringida</legend>
+													
+										            @if(flash.containsKey("error")) {
+												        <div class="alert alert-important">
+												            <strong>Error</strong> @flash.get("error")
+												        </div>
+												    } 
+
 													<hr class="separator bottom" style="margin-bottom: 10px;" />
+													
 													<div class="input-prepend input-full">
 														<span class="add-on glyphicons user">
 															<i></i>
 														</span>
-														<input type="text" name="" class="" placeholder="Usuario" />
+														<input type="text" name="usuario" class="" placeholder="Usuario" />
 													</div>
 													
 													<div class="input-prepend input-full">
 														<span class="add-on glyphicons lock">
 															<i></i>
 														</span>
-														<input type="password" name="" class="" placeholder="Contrase&ntilde;a" />
+														<input type="password" name="contrasena" class="" placeholder="Contrase&ntilde;a" />
 													</div>
 
-													<a href="" class="glyphicons circle_question_mark forgot">contrase&ntilde;a olvidada 
-														<i></i>
-													</a>
 													
 													<hr class="separator bottom" style="margin-bottom: 10px;" />
-													<a href="/ciudadanos/lista" class="btn btn-icon btn-block glyphicons right flash btn-primary">Entrar<i></i></a>
+													<button type="submit" class="btn btn-icon btn-block glyphicons right flash btn-primary">Entrar<i></i></button>
 												</fieldset>
 											</form>
+
+											
 										</div>
-									</div>
-									<div class="btn-register">
-										<a href="#" class="btn btn-icon btn-success glyphicons edit"><i></i>Ayuda</a>
 									</div>
 								</div>
 
-								<div>
-									<div class="positionWrapper registerWrapper hide">
-										<span class="line"></span>
-										<div class="box-1 registerbox">
-											<div class="inner">
-												<form action="index.html" method="post" class="fts" />
-													<input type="text" name="" placeholder="Username" />
-													<input type="password" name="" placeholder="Password" />
-													<button type="submit" class="btn btn-icon btn-block glyphicons right edit btn-success">Registrar<i></i></button>
-												</form>
-											</div>
-										</div>
-										<div class="btn-login">
-											<a href="#" class="btn btn-icon btn-primary glyphicons unlock"><i></i>Login</a>
-										</div>
-									</div>
-								</div>							
+									
 							</div>
 						</div>
 					</div>

@@ -1,0 +1,96 @@
+@(formPAG: Form[Agua])
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <table width="100%">
+          <tr>
+            <td width="50%" align="left">
+               <img width="100%" height="200%" src="./public/template/logoP.png"  />
+            </td>
+          </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center">Republica Bolivariana de Venezuela</td>
+      </tr>
+      <tr>
+        <td align="center">Consejo Comunal La Esperanza de Orituco</td>
+      </tr>
+      <tr>
+        <td align="center">Municipio Jose Tadeo Monagas, Parroquia Lezama, Guarico</td>
+      </tr>
+
+      <tr>
+        <td align="center">Rif: J-24986707-1</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center"><b>PAGO DE AGUA</b><br/><br/><br/><br/></td>
+      </tr>
+       <tr>
+        <td align="left"><b>Comite de Agua:</b></td>
+      </tr>
+    </table>
+
+
+       <table width="100%">
+      <tr>
+        <td width="50%" align="right"><b>Cedula:</b>  </td>
+        <td width="50%" align="leftt">  @formPAG("persona.cedula").value</td>
+      </tr>
+      <tr>
+        <td width="50%" align="right"><b>Nombre:</b>  </td>
+        <td width="50%" align="leftt">  @formPAG("persona.nombre").value</td>
+      </tr>
+      <tr>
+        <td width="50%" align="right"><b>Apellido:</b>  </td>
+        <td width="50%" align="leftt">  @formPAG("persona.apellido").value</td>
+      </tr>
+      
+      <tr >
+        <td width="50%" align="right"><b>Fecha de Asamblea:</b>  </td>
+        <td width="50%" align="leftt">  @formPAG("monto").value</td>
+      </tr>
+      
+
+      <tr >
+        <td width="50%" align="right"><b>Fecha de Pago:</b>  </td>
+        <td width="50%" align="left">  @formPAG("fechaPago").value</td>
+      </tr>
+
+      <tr >
+        <td width="50%" align="right"><b>Correspondiente al Mes:</b>  </td>
+        <td width="50%" align="left">  @formPAG("mesCorrespondiente").value</td>
+      </tr>
+
+
+
+    </table>
+
+
+    <br/><br/><br/><br/><br/>
+
+    
+    <table width="100%">
+      <tr>
+        <td align="center" height="40"><b>Firma y Sello Receptor:</b><br/><br/><br/></td>
+      </tr>
+
+      <tr>
+        <td align="center" height="40"><b>____________________________</b></td>
+      </tr>
+    </table>
+
+  </body>
+</html>

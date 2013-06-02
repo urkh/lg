@@ -17,7 +17,7 @@ public class CAgua extends Controller {
 	}
 
 
-	public static Result Inicio = redirect(routes.CAgua.nuevo());
+	public static Result Inicio = redirect("/agua/lista");
 
 	public static Result index() {
 		return Inicio;

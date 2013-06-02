@@ -3,16 +3,29 @@
 # ~~~~
 
 # Home page
-GET     /login                           controllers.Index.index()
+GET     /inicio                         controllers.Index.inicio()
+
+
+GET     /	                         	controllers.Autenticar.login()
+POST    /login                      	controllers.Autenticar.validar()
+GET     /logout                         controllers.Autenticar.logout()
 
 # Map static resources from the /public folder to the /assets URL path
-GET     /assets/*file               controllers.Assets.at(path="/public", file)
+GET     /assets/*file               	controllers.Assets.at(path="/public", file)
 
 
 # CRUD registro de ciudadanos
 GET     /ciudadanos/nuevo              	controllers.CPersona.nuevo()
 POST    /ciudadanos/guardar         	controllers.CPersona.guardar()
 GET 	/ciudadanos/lista 				controllers.CPersona.listar(p:Int ?= 0, s ?= "cedula", o ?= "asc", busqueda ?= "")
+GET 	/ciudadanos/editar/:id         	controllers.CPersona.editar(id:Long)
+POST    /ciudadanos/actualizar         	controllers.CPersona.actualizar()
+GET     /ciudadanos/cr/:id             	controllers.CReportes.reporteCR(id:Long)
+GET     /ciudadanos/cbc/:id            	controllers.CReportes.reporteCBC(id:Long)
+POST    /ciudadanos/ca 	            	controllers.CReportes.reporteCA()
+POST    /ciudadanos/pe 	            	controllers.CReportes.reportePE()
+GET     /ciudadanos/cartaA 	           	controllers.CPersona.ca()
+GET     /ciudadanos/permisos           	controllers.CPersona.pe()
 
 GET     /hijos/nuevo              		controllers.CHijos.nuevo()
 POST    /hijos/guardar	         		controllers.CHijos.guardar()
@@ -26,30 +39,41 @@ GET 	/buscarCedulaH 					controllers.CHijos.buscarCedula()
 # registro solicitudes salud
 GET     /salud/nuevo              	controllers.CSalud.nuevo()
 POST    /salud/guardar             	controllers.CSalud.guardar()
+GET 	/salud/editar/:id         	controllers.CSalud.editar(id:Long)
+POST    /salud/actualizar         	controllers.CSalud.actualizar()
 GET 	/salud/lista 				controllers.CSalud.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
+GET     /salud/reporte         		controllers.CReportes.reporteSalud()
 
 
 # registro solicitudes vivienda
 GET     /vivienda/nuevo              	controllers.CVivienda.nuevo()
 POST    /vivienda/guardar             	controllers.CVivienda.guardar()
 GET 	/vivienda/lista 				controllers.CVivienda.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
+GET 	/vivienda/editar/:id         	controllers.CVivienda.editar(id:Long)
+POST    /vivienda/actualizar         	controllers.CVivienda.actualizar()
+GET     /vivienda/reporte         		controllers.CReportes.reporteVivienda()
 
 
 # agua
 GET     /agua/nuevo              	controllers.CAgua.nuevo()
 POST    /agua/guardar             	controllers.CAgua.guardar()
 GET 	/agua/lista 				controllers.CAgua.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
+GET    /agua/pag/:id 	          	controllers.CReportes.reportePAG(id:Long)
 
 # registro solicitudes economia
+GET 	/economia/editar/:id         	controllers.CEconomia.editar(id:Long)
+POST    /economia/actualizar         	controllers.CEconomia.actualizar()
 GET     /economia/nuevo              	controllers.CEconomia.nuevo()
 POST    /economia/guardar             	controllers.CEconomia.guardar()
 GET 	/economia/lista 				controllers.CEconomia.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
+GET     /economia/reporte         		controllers.CReportes.reporteEconomia()
 
 
 # registro solicitudes transporte
 GET     /transporte/nuevo              	controllers.CTransporte.nuevo()
 POST    /transporte/guardar             controllers.CTransporte.guardar()
 GET 	/transporte/lista 				controllers.CTransporte.listar(p:Int ?= 0, s ?= "hijos.cedulaH", o ?= "asc", busqueda ?= "")
+GET    /transporte/pt/:id 	          	controllers.CReportes.reportePT(id:Long)
 
 
 # registro hijos
@@ -60,17 +84,48 @@ POST    /hijos/guardar             	controllers.CHijos.guardar()
 
 
 # registro cultura
+GET 	/cultura/editar/:id         	controllers.CCultura.editar(id:Long)
+POST    /cultura/actualizar         	controllers.CCultura.actualizar()
 GET     /cultura/nuevo              	controllers.CCultura.nuevo()
 POST    /cultura/guardar             	controllers.CCultura.guardar()
-GET 	/cultura/lista 				controllers.CCultura.listar(p:Int ?= 0, s ?= "hijos.cedulaH", o ?= "asc", busqueda ?= "")
+GET 	/cultura/lista 					controllers.CCultura.listar(p:Int ?= 0, s ?= "hijos.cedulaH", o ?= "asc", busqueda ?= "")
+GET     /cultura/reporte         		controllers.CReportes.reporteCultura()
+
+
 
 # registro alimentacion
 GET     /alimentacion/nuevo              	controllers.CAlimentacion.nuevo()
 POST    /alimentacion/guardar             	controllers.CAlimentacion.guardar()
 GET 	/alimentacion/lista 				controllers.CAlimentacion.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
 
+GET     /alimentacion/reporte         		controllers.CReportes.reporteAlimentacion()
+
 
 # registro igualdad social
 GET     /is/nuevo              	controllers.CIS.nuevo()
-POST    /is/guardar             	controllers.CIS.guardar()
+POST    /is/guardar             controllers.CIS.guardar()
 GET 	/is/lista 				controllers.CIS.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")
+GET 	/is/editar/:id         	controllers.CIS.editar(id:Long)
+POST    /is/actualizar         	controllers.CIS.actualizar()
+GET     /is/reporte           	controllers.CReportes.reporteIS()
+GET     /is/reporte           	controllers.CReportes.reporteIS()
+
+
+
+
+# registro solicitudes creditos
+GET 	/tierras/editar/:id         	controllers.CTierras.editar(id:Long)
+POST    /tierras/actualizar         	controllers.CTierras.actualizar()
+GET     /tierras/nuevo              	controllers.CTierras.nuevo()
+POST    /tierras/guardar             	controllers.CTierras.guardar()
+GET 	/tierras/lista 					controllers.CTierras.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?="")
+GET     /tierras/reporte            	controllers.CReportes.reporteTierras()
+
+
+
+# registro usuarios
+GET 	/usuarios/editar/:id         	controllers.CUsuarios.editar(id:Long)
+POST    /usuarios/actualizar         	controllers.CUsuarios.actualizar()
+GET     /usuarios/nuevo              	controllers.CUsuarios.nuevo()
+POST    /usuarios/guardar             	controllers.CUsuarios.guardar()
+GET 	/usuarios/lista 				controllers.CUsuarios.listar(p:Int ?= 0, s ?= "persona.cedula", o ?= "asc", busqueda ?= "")

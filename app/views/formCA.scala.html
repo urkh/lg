@@ -1,0 +1,214 @@
+@import helper._
+
+@main(comite = "Solicitud de Carta Aval", com="ciudadanos"){
+
+
+						<div align="center" class="control-group input-append">
+						 	<label class="control-label" for="Ciudadano">Ciudadano a buscar</label>
+						 	<div class="controls">
+							    <input id="cedula" class="span3" id="appendedInputButton" type="text">
+							    <button id="buscarCedula" rel="tooltip" data-placement="right" title="Ingrese una cedula a buscar" class="btn btn-primary" type="submit">Buscar</button>
+							</div>
+						</div>
+
+
+
+
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/ciudadanos/ca" autocomplete="off" />
+
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="well" style="padding-bottom: 10px;">
+				<h4>Solicitud de Carta Aval</h4>
+				<hr class="separator" />
+				<div class="row-fluid">
+					<div class="span6">
+
+
+						<input type="hidden" name="persona.id" id="persona.id">
+
+
+						<div class="control-group">
+							<label class="control-label" for="nombre">Nombre</label>
+							<div class="controls">
+								<input class="span8" readOnly type="text" id="nombre" name="nombre" />
+							</div>
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="apellido">Apellido</label>
+							<div class="controls">
+								<input class="span8" readOnly id="apellido" name="apellido" type="text" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="fecha">Fecha</label>
+							<div class="controls">
+								<input class="span10" readOnly type="text" id="datepicker2" name="fecha" />
+							</div>
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="vocero1">Vocero 1</label>
+							<div class="controls">
+								<select name="vocero1" id="vocero1" class="span10">
+									<option value="" />
+									<option value="Salud" /> Salud
+									<option value="Agua" /> Agua
+									<option value="Tierras" /> Tierras
+									<option value="Alimentacion" /> Alimentacion
+									<option value="Transporte" /> Transporte
+									<option value="Educ y Cultura" /> Educ y Cultura
+									<option value="Economia Popular" /> Economia Popular
+									<option value="Igualdad Social" /> Igualdad Social
+
+								</select>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="vocero2">Vocero 2</label>
+							<div class="controls">
+								<select name="vocero2" id="vocero2" class="span10">
+									<option value="" />
+									<option value="Salud" /> Salud
+									<option value="Agua" /> Agua
+									<option value="Tierras" /> Tierras
+									<option value="Alimentacion" /> Alimentacion
+									<option value="Transporte" /> Transporte
+									<option value="Educ y Cultura" /> Educ y Cultura
+									<option value="Economia Popular" /> Economia Popular
+									<option value="Igualdad Social" /> Igualdad Social
+
+								</select>
+							</div>
+						</div>
+
+
+						
+
+
+
+					</div>
+
+					<div class="span6">
+
+						<h5>Datos del Fundo</h5>
+						<hr class="separator" />
+
+
+						<div class="control-group">
+							<label class="control-label" for="fundo">Nombre del Fundo</label>
+							<div class="controls">
+								<input class="span10" type="text" id="fundo" name="fundo" />
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="tOcupacion">Tiempo de Ocupaci&oacute;n</label>
+							<div class="controls">
+								<input class="span5" type="text" id="tOcupacion" name="tOcupacion" />
+								<select name="tiempo" id="tiempo" class="span5">
+									<option value="meses" /> Meses
+									<option value="Anos" /> Anos
+								</select>
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="hectareas">Cantidad de Hectareas</label>
+							<div class="controls">
+								<input class="span10" type="text" id="hectareas" name="hectareas" />
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="rubro">Rubro a explotar</label>
+							<div class="controls">
+								<input class="span10" type="text" id="rubro" name="rubro" />
+							</div>
+						</div>
+
+
+
+						<h5>Linderos</h5>
+						<hr class="separator" />
+						<div class="control-group">
+							<label class="control-label" for="norte">Norte</label>
+							<div class="controls">
+								<input class="span6" type="text" id="norte" name="norte"  />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="sur">Sur</label>
+							<div class="controls">
+								<input class="span6" type="text" id="sur" name="sur" />
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="este">Este</label>
+							<div class="controls">
+								<input class="span6" type="text" id="este" name="este" />
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="oeste">Oeste</label>
+							<div class="controls">
+								<input class="span6" type="text" id="oeste" name="oeste" />
+							</div>
+						</div>
+						
+					</div>
+
+						
+				</div>
+			</div>
+
+			<div class="form-actions">
+					
+
+					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+						<i></i>Imprimir
+					</button>
+
+					<a class="btn btn-icon btn-default glyphicons circle_remove" href="/tierras/lista">
+						<i></i>Cancelar
+					</a>
+
+				</div><br/><br/><br/><br/>
+			</div>
+
+		</div>
+	</div>
+
+</form>
+
+<script>
+
+
+$(function(){
+
+	$('#datepicker2').datepicker();
+	$('#datepicker1').datepicker();
+
+});
+
+        
+</script>
+
+
+
+}

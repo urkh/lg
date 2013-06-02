@@ -38,5 +38,4 @@ public class Transporte extends Model {
 	}
 
 
-
 }

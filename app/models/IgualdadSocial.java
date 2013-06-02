@@ -7,7 +7,7 @@ import play.data.format.*;
 import java.util.*;
 
 import javax.persistence.*;
-import com.avaje.ebean.Page;
+import com.avaje.ebean.*;
 
 
 @Entity
@@ -26,6 +26,8 @@ public class IgualdadSocial extends Model {
 	@Constraints.Required
 	public String fecha;
 
+	public String estado;
+
 
 
 	public static Finder<Long, IgualdadSocial> buscar = new Finder<Long, IgualdadSocial>(Long.class, IgualdadSocial.class);
@@ -33,6 +35,11 @@ public class IgualdadSocial extends Model {
 
 	public static Page<IgualdadSocial> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
 		return buscar.where().ilike("persona.cedula", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("persona").findPagingList(tamanoPagina).getPage(pagina);
+	}
+
+	public static List<IgualdadSocial> listar(){
+		List<IgualdadSocial> listar = Ebean.find(IgualdadSocial.class).fetch("persona").findList();
+		return listar;
 	}
 
 

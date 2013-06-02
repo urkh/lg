@@ -1,0 +1,77 @@
+@(formPE: Form[Persona], fechaAs: String, fechaE: String, espectaculo: String, vocero1: String, vocero2: String, vocero3: String, desde: String, hasta: String, hora1: String, hora2: String, tipo: String)
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <table width="100%">
+          <tr>
+            <td width="50%" align="left">
+               <img width="100%" height="200%" src="./public/template/logoP.png"  />
+            </td>
+          </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center">Republica Bolivariana de Venezuela</td>
+      </tr>
+      <tr>
+        <td align="center">Consejo Comunal La Esperanza de Orituco</td>
+      </tr>
+      <tr>
+        <td align="center">Municipio Jose Tadeo Monagas, Parroquia Lezama, Guarico</td>
+      </tr>
+
+      <tr>
+        <td align="center">Rif: J-24986707-1</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center"><b>SOLICITUD DE PERMISOS</b><br/><br/><br/><br/></td>
+      </tr>
+       <tr>
+        <td align="left"><b>Permisos para fiestas:</b></td>
+      </tr>
+    </table>
+
+    <br/>
+
+    <p align="justify">Quienes suscriben, Miembros del <b>Consejo Comunal La Esperanza de Orituco</b>, de la parroquia <b>Lezama</b> del municipio <b>Jose Tadeo Monagas</b> del Estado <b>Guarico</b>, en sus caracteres de <b>@vocero1, @vocero2, @vocero3</b>; en atencion a lo dispuesto en el Articulo 48 del Decreto con Rango, Valor y Fuerza de Ley de Reforma de la Ley de Impuesto Sobre el Alcohol y especies alcoholicas de fecha 03 de octubre de 2007, publicado en <b>Gaceta Oficial Nro. 5.618.</b> Extraordinario de fecha 05 de octubre de 2007, que establece como condicion previa para el otorgamiento de los permisos para expendio de licores y la fijacion de los horarios respectivos, la opinion favorable y vinculante del respectivo Consejo Comunal en concordancia con los <b>Articulos 194</b> y <b>226</b> del Reglamento de la Ley de Impuesto sobre Alcohol y Especies Alcoholicas publicado en la <b>Gaceta Oficial Nro. 3.66</b> extraordinario del 05 de Diciembre de 1985. Actuando en ejecucion de la decision de la Asamblea de Ciudadanos y Ciudadanas como maxima instancia decisoria del Consejo Comunal, celebrada en fecha <b>@fechaAs</b>, tal como lo senalan los <b>Articulos 6</b> y <b>21</b>, de la Ley de los Consejos Comunales publicadas en Gaceta Oficial Extraordinario Nro. 5.806, del 10 de Abril de 2006, emitimos opinion <b>@tipo</b>, para el otorgamiento del <b>PERMISO TEMPORAL</b>, para el expendio de bebidas alcoholicas del espectaculo denominado <b>@espectaculo</b>, a celebrarse desde el <b>@fechaE</b>, cuyo solicitante legal es el ciudadano <b> @formPE("nombre").value @formPE("apellido").value</b> titular de la Cedula de Identidad Nro. <b>@formPE("cedula").value</b>, desde el dia <b>@desde</b> hasta el dia <b>@hasta</b>, desde las <b>@hora1</b> hasta las <b> @hora2</b>, sin perjuicio de que deba dar cumplimiento a otros requisitos de ley</p>
+
+
+
+    <br/><br/><br/>
+
+    
+    <table width="100%">
+      <tr>
+        <td align="center" height="40"><b>____________________________</b></td>
+        <td></td>
+        <td align="center" height="40"><b>____________________________</b></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td align="center" height="40"><b>____________________________</b></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <br/><br/>
+
+
+
+
+    <p align="justify"><b>Nota:</b> Los firmantes no pueden pertenecer al Banco Comunal, ni a la Contraloria Social. Se debe anexar listado de ciudadanas y ciudadanos que participaron en la Asamblea, en dicho listado se debe identificar (Nombre, Apellido, Nro. de Cedula, Telefono y Firma).</p>
+
+  </body>
+</html>

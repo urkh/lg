@@ -13,7 +13,7 @@ import views.html.listaTransporte;
 public class CTransporte extends Controller {
 
 
-	public static Result Inicio = redirect(routes.CTransporte.nuevo());
+	public static Result Inicio = redirect("/transporte/lista");
 
 	public static Result listar(int pagina, String ordenarPor, String orden, String filtro) {
 		return ok(listaTransporte.render(Transporte.pagina(pagina, 10, ordenarPor, orden, filtro), ordenarPor, orden, filtro));

@@ -63,20 +63,17 @@
 
 					<!-- Imagen del perfil -->
 					<div class="profile">
-						<img src="./url/imagen" class="avatar" alt="Profile" />
-						<span class="info hidden-phone">
-							<strong>Luis Gustavo</strong>
-							<em>Administrador</em>
+						<img src="@routes.Assets.at("template/logoG.png")" class="avatar" alt="Profile" />
+						<span class="info hidden-phone" >
+							<strong>@session.get("usuario")</strong>
+							<em>@session.get("tipo")</em>
 						</span>
 					</div>
 
 					<!-- Notificaciones -->
 					<ul class="notif">
 						<li>
-							<a href="" class="glyphicons envelope btn" rel="tooltip" data-placement="bottom" data-original-title="3 mensajes nuevos">
-								<i></i>
-								<span>3</span>
-							</a>
+							<img width="1000px" height="100px" src="@routes.Assets.at("template/logo.png")"  />
 						</li>
 					</ul>
 					
@@ -85,7 +82,7 @@
 						
 						<!-- Opcion desconectar -->
 						<li>
-							<a href="/login" class="logout glyphicons lock"  rel="tooltip" data-placement="bottom" data-original-title="Desconectarse del sistema">
+							<a href="/logout" class="logout glyphicons lock"  rel="tooltip" data-placement="bottom" data-original-title="Desconectarse del sistema">
 								<i></i>
 								<span>Salir</span>
 							</a>
@@ -104,8 +101,8 @@
 						<div class="rrow scroll-y-left">
 							<div class="iScrollWrapper">
 								<ul>
-									<li class="glyphicons home currentScroll">
-										<a href="index.html">
+									<li class="glyphicons @("active".when(com == "index"))">
+										<a href="/inicio" class="glyphicons star">
 											<i></i>
 											<span>Inicio</span>
 										</a>
@@ -131,10 +128,22 @@
 													<span>Listados</span>
 												</a>
 											</li>
+
+											
+
+											<li class="">
+												<a href="/ciudadanos/permisos" class="glyphicons user">
+													<i></i>
+													<span>Permisos</span>
+												</a>
+											</li>
 										</ul>
 
 									</li>
 
+
+
+								@if((session.get("tipo")=="Salud") || (session.get("tipo")=="Administrador")){
 									<li class="hasSubmenu2 @("active".when(com == "salud"))">
 										<a data-toggle="collapse" class="glyphicons sort" href="#menuSalud">
 											<i></i>
@@ -157,6 +166,9 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+								@if((session.get("tipo")=="Vivienda") || (session.get("tipo")=="Administrador")){
 									
 									<li class="hasSubmenu2 @("active".when(com == "vivienda"))">
 										<a data-toggle="collapse" class="glyphicons picture" href="#menuVivienda">
@@ -179,6 +191,10 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+
+								@if((session.get("tipo")=="Agua") || (session.get("tipo")=="Administrador")){
 
 									<li class="hasSubmenu2 @("active".when(com == "agua"))">
 										<a data-toggle="collapse" class="glyphicons adress_book" href="#menuAgua">
@@ -201,6 +217,9 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+								@if((session.get("tipo")=="Tierras") || (session.get("tipo")=="Administrador")){
 
 									<li class="hasSubmenu2 @("active".when(com == "tierras"))">
 										<a data-toggle="collapse" class="glyphicons cogwheels" href="#menuTierras">
@@ -218,11 +237,23 @@
 											<li class="">
 												<a href="/tierras/lista" class="glyphicons user">
 													<i></i>
-													<span>Listadoss</span>
+													<span>Listados</span>
 												</a>
 											</li>
+
+											<li class="">
+												<a href="/ciudadanos/cartaA" class="glyphicons user">
+													<i></i>
+													<span>Carta Aval</span>
+												</a>
+											</li>
+											
 										</ul>
 									</li>
+								}
+
+
+								@if((session.get("tipo")=="Alimentacion") || (session.get("tipo")=="Administrador")){
 
 									
 									<li class="hasSubmenu2 @("active".when(com == "alimentacion"))">
@@ -246,6 +277,10 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+
+								@if((session.get("tipo")=="Transporte") || (session.get("tipo")=="Administrador")){
 
 
 									<li class="hasSubmenu2 @("active".when(com == "transporte"))">
@@ -269,6 +304,10 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+
+								@if((session.get("tipo")=="Educ y Cultura") || (session.get("tipo")=="Administrador")){
 
 									<li class="hasSubmenu2 @("active".when(com == "educacion"))">
 										<a data-toggle="collapse" class="glyphicons cogwheels" href="#menuCultura">
@@ -291,6 +330,9 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+								@if((session.get("tipo")=="Economia Popular") || (session.get("tipo")=="Administrador")){
 
 									<li class="hasSubmenu2 @("active".when(com == "economia"))">
 										<a data-toggle="collapse" class="glyphicons show_thumbnails_with_lines" href="#menuEconomia">
@@ -314,6 +356,11 @@
 										</ul>
 									</li>
 
+								}
+
+
+								@if((session.get("tipo")=="Igualdad Social") || (session.get("tipo")=="Administrador")){
+
 
 									<li class="hasSubmenu2 @("active".when(com == "is"))">
 										<a data-toggle="collapse" class="glyphicons sort" href="#menuIS">
@@ -336,6 +383,42 @@
 											</li>
 										</ul>
 									</li>
+								}
+
+
+								@if(session.get("tipo")=="Administrador"){
+
+
+									<li class="hasSubmenu2 @("active".when(com == "usuarios"))">
+										<a data-toggle="collapse" class="glyphicons sort" href="#menuUsuarios">
+											<i></i>
+											<span>Administracion</span>
+										</a>
+										<ul class="collapse" id="menuUsuarios">
+											<li class="">
+												<a href="/usuarios/nuevo" class="glyphicons user">
+													<i></i>
+													<span>Registrar Usuarios</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="/usuarios/lista" class="glyphicons user">
+													<i></i>
+													<span>Listados</span>
+												</a>
+											</li>
+
+											<li class="">
+												<a href="@routes.Assets.at("DB.sql")"  class="glyphicons user">
+													<i></i>
+													<span>Respaldar DB</span>
+												</a>
+											</li>
+										</ul>
+									</li>
+
+								}
 
 
 
@@ -354,7 +437,7 @@
 						<div class="rrow scroll-y" id="mainYScroller">
 							<div class="inner topRight">
 								<ul class="breadcrumb">
-									<li><a href="index.html" class="glyphicons home"><i></i> Inicio</a></li>
+									<li><a href="#" class="glyphicons home"><i></i> Inicio</a></li>
 									<li class="divider"></li>
 									<li>Panel Administracion</li>
 								</ul>
@@ -406,7 +489,7 @@
 	      				</span>
 	      			</li>		      			
 	      			<li>
-	      				<a href="#" class="glyphicons circle_question_mark text" title="Documentacion del Sistema">
+	      				<a href="@routes.Assets.at("manual.pdf")" class="glyphicons circle_question_mark text" title="Documentacion del Sistema">
 	      					<i></i>
 	      					<span class="hidden-phone">Ayuda</span>
 	      				</a>

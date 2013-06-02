@@ -1,0 +1,105 @@
+@(lista: List[Vivienda])
+@import helper._
+
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+
+        <table width="100%">
+          <tr>
+            <td width="50%" align="left">
+               <img width="100%" height="200%" src="./public/template/logoP.png"  />
+            </td>
+          </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center">Republica Bolivariana de Venezuela</td>
+      </tr>
+      <tr>
+        <td align="center">Consejo Comunal La Esperanza de Orituco</td>
+      </tr>
+      <tr>
+        <td align="center">Municipio Jose Tadeo Monagas, Parroquia Lezama, Guarico</td>
+      </tr>
+
+      <tr>
+        <td align="center">Rif: J-24986707-1</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+
+    <table width="100%">
+      <tr>
+        <td align="center"><b>REPORTE DE SOLICITUDES</b><br/><br/></td>
+      </tr>
+      <tr>
+        <td align="left"><b>Comite de Vivienda</b><br/></td>
+      </tr>
+    </table>
+
+<table border="1" align="center">
+                <tr align="center">
+                    <td width="100px"><b>Cedula</b></td>
+                    <td width="250px"><b>Nombre y Apellido</b></td>
+                    <td width="150px"><b>Fecha</b></td>
+                    <td width="150px"><b>Solicitud</b></td>
+                    <td width="150px"><b>Tipo de Rehabilitacion</b></td>
+                    <td width="150px"><b>Estado</b></td>
+                    
+                    
+                    
+                </tr>
+          
+
+                @for(vivienda <- lista) {
+                    <tr align="center">
+                    
+                        <td> 
+                            <span>@vivienda.persona.cedula</span>    
+                        </td>
+
+                        <td>
+                            <span>@vivienda.persona.nombre  @vivienda.persona.apellido</span>
+                        </td>
+
+                        <td> 
+                            <span>@vivienda.fechaSol</span>    
+                        </td>
+
+                        <td> 
+                            <span>@vivienda.solicitud</span>    
+                        </td>
+
+                         <td> 
+                            <span>@vivienda.rehabilitacion</span>    
+                        </td>
+
+                        <td> 
+                            <span>@vivienda.estado</span>    
+                        </td>
+
+
+
+
+
+
+                        
+
+                    </tr>
+                }
+
+        </table>
+
+   
+  </body>
+</html>

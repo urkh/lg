@@ -1,0 +1,75 @@
+@(formPersona: Form[Persona], ano: String, mes: String, dia: String)
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <table width="100%">
+          <tr>
+            <td width="50%" align="left">
+               <img width="100%" height="200%" src="./public/template/logoP.png"  />
+            </td>
+          </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center">Republica Bolivariana de Venezuela</td>
+      </tr>
+      <tr>
+        <td align="center">Consejo Comunal La Esperanza de Orituco</td>
+      </tr>
+      <tr>
+        <td align="center">Municipio Jose Tadeo Monagas, Parroquia Lezama, Guarico</td>
+      </tr>
+
+      <tr>
+        <td align="center">Rif: J-24986707-1</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center"><b>CONSTANCIA DE RESIDENCIA</b></td>
+      </tr>
+    </table>
+
+    <br/>
+
+<p style="text-indent:100" align="justify"> Quien suscribe, el Consejo Comunal La Esperanza de Orituco, Municipio Jose Tadeo Monagas del Estado Guarico, en uso de sus atribuciones legales, hace constar por medio de la presente, que el ciudadano (a): <b>@formPersona("nombre").value   @formPersona("apellido").value</b>, mayor de edad, Estado Civil: <b>@formPersona("estadoCivil").value</b>, titular de la Cedula de Identidad: <b>@formPersona("cedula").value</b> se encuentra residenciado en <b>@formPersona("direccion").value</b>, de la parroquia Lezama, Municipio Jose Tadeo Monagas, Estado Guarico.</p> 
+
+<br/>
+
+<p style="text-indent:100" align="justify">Constancia que se expide a solicitud de parte interesada en La Esperanza de Orituco, a los <b>@dia</b> dias del mes <b>@mes</b> del año <b>@ano</b>.</p>
+
+      
+
+
+   
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    
+    <table width="100%">
+      <tr>
+        <td align="center" height="40">Atentamente</td>
+      </tr>
+       <tr>
+        <td align="center" height="40"><b>Por el Consejo Comunal La Esperanza de Orituco:</b><br/><br/><br/></td>
+      </tr>
+
+      <tr>
+        <td align="center" height="40"><b>____________________________</b></td>
+      </tr>
+    </table>
+
+  </body>
+</html>

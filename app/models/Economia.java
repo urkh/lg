@@ -5,8 +5,9 @@ import play.data.validation.*;
 import play.data.format.*;
 
 import java.util.*;
+
 import javax.persistence.*;
-import com.avaje.ebean.Page;
+import com.avaje.ebean.*;
 
 @Entity
 public class Economia extends Model {
@@ -34,6 +35,8 @@ public class Economia extends Model {
 
 	public String dias;
 
+	public String estado;
+
 
 	public static Finder<Long, Economia> buscar = new Finder<Long, Economia>(Long.class, Economia.class);
 
@@ -43,6 +46,10 @@ public class Economia extends Model {
 	}
 
 
+	public static List<Economia> listar(){
+		List<Economia> listar = Ebean.find(Economia.class).fetch("persona").findList();
+		return listar;
+	}
 
 
 	

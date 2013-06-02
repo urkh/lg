@@ -25,7 +25,13 @@ $(function()
 	$("#validarForm").validate({
 		rules: {
 
-
+			estado: "required",
+			norte: "required",
+			sur: "required",
+			credito: "required",
+			este: "required",
+			oeste: "required",
+			fundo: "required",
 			nombre: "required",
 			apellido: "required",
 			requerido: "required",
@@ -99,6 +105,17 @@ $(function()
 			agree: "required"
 		},
 		messages: {
+			
+
+
+			estado: "Este campo es obligatorio",
+			norte: "Este campo es obligatorio",
+			sur: "Este campo es obligatorio",
+			este: "Este campo es obligatorio",
+			oeste: "Este campo es obligatorio",
+			fundo: "Este campo es obligatorio",
+			credito: "Este campo es obligatorio",
+
 			denunciado: "Este campo es obligatorio",
 			denuncia: "Este campo es obligatorio",
 			solicitud: "Este campo es obligatorio",

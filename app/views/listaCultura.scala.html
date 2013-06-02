@@ -50,8 +50,13 @@
  
         </div>
         </form>
+        <div id="add">
         
-        <a rel="tooltip" data-placement="left" title="Realizar Nueva Solicitud" class="btn btn-success" id="add" href="/cultura/nuevo">Nueva</a>
+        <a rel="tooltip" data-placement="left" title="Realizar Nueva Solicitud" class="btn btn-success" href="/cultura/nuevo">Nueva</a>
+
+        <a rel="tooltip" data-placement="bottom" title="Reportes" class="btn btn-info" href="/cultura/reporte">Reportes</a>
+
+    </div>
         
     </div>
     
@@ -66,28 +71,20 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="reporte header" width="30"><a>PDF</a></th>
                     @header("hijos.cedulaH", "Cedula")
                     @header("hijos.nombreH", "Estudiante")
                     @header("fecha", "Fecha")
-                    @header("tZapatos", "Solicitando")
-
-                    
-                    
+                    @header("tZapatos", "Solicitando")                    
+                    @header("estado", "Estado")
                 </tr>
             </thead>
             <tbody>
 
                 @for(cultura <- paginaActual.getList) {
-                    <tr>
-
-                         <td>
-                            <a href="#"><i class="icon-th-list"></i></a>
-                        </td>
-                    
+                    <tr @if(cultura.estado=="Aprobada"){class="success"}else{class="error"}>                  
 
                         <td>
-                            <a href="#" rel="tooltip" data-placement="bottom" title="@cultura.hijos.cedulaH">@cultura.hijos.cedulaH</a>
+                            <a href="/cultura/editar/@cultura.id" rel="tooltip" data-placement="bottom" title="@cultura.hijos.cedulaH">@cultura.hijos.cedulaH</a>
                         </td>
                     
                         <td>
@@ -104,6 +101,10 @@
 
                         <td>
                             <span rel="tooltip" data-placement="bottom" title="#">@cultura.tPantalon  @cultura.tFranelas  @cultura.tZapatos  @cultura.utiles</span>
+                        </td>
+
+                        <td>
+                            <span rel="tooltip" data-placement="bottom" @if(cultura.estado=="Aprobada"){class="label label-success"}else{class="label label-important"}   title="@cultura.estado">@cultura.estado</span>
                         </td>
                         
                         

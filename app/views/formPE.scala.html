@@ -1,0 +1,289 @@
+@import helper._
+
+@main(comite = "Solicitud de Permisos", com="ciudadanos"){
+
+
+						<div align="center" class="control-group input-append">
+						 	<label class="control-label" for="Ciudadano">Ciudadano a buscar</label>
+						 	<div class="controls">
+							    <input id="cedula" class="span3" id="appendedInputButton" type="text">
+							    <button id="buscarCedula" rel="tooltip" data-placement="right" title="Ingrese una cedula a buscar" class="btn btn-primary" type="submit">Buscar</button>
+							</div>
+						</div>
+
+
+
+
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/ciudadanos/pe" autocomplete="off" />
+
+	<div class="row-fluid">
+		<div class="span12">
+			<div class="well" style="padding-bottom: 10px;">
+				<h4>Solicitud Para Fiestas</h4>
+				<hr class="separator" />
+				<div class="row-fluid">
+					<div class="span6">
+
+
+						<input type="hidden" name="persona.id" id="persona.id">
+
+
+						<div class="control-group">
+							<label class="control-label" for="nombre">Nombre</label>
+							<div class="controls">
+								<input class="span8" readOnly type="text" id="nombre" name="nombre" />
+							</div>
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="apellido">Apellido</label>
+							<div class="controls">
+								<input class="span8" readOnly id="apellido" name="apellido" type="text" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="fechaAs">Fecha Asamblea</label>
+							<div class="controls">
+								<input class="span10" readOnly type="text" id="datepicker2" name="fechaAs" />
+							</div>
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="vocero1">Vocero 1</label>
+							<div class="controls">
+								<select name="vocero1" id="vocero1" class="span10">
+									<option value="" />
+									<option value="Salud" /> Salud
+									<option value="Agua" /> Agua
+									<option value="Tierras" /> Tierras
+									<option value="Alimentacion" /> Alimentacion
+									<option value="Transporte" /> Transporte
+									<option value="Educ y Cultura" /> Educ y Cultura
+									<option value="Economia Popular" /> Economia Popular
+									<option value="Igualdad Social" /> Igualdad Social
+
+								</select>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="vocero2">Vocero 2</label>
+							<div class="controls">
+								<select name="vocero2" id="vocero2" class="span10">
+									<option value="" />
+									<option value="Salud" /> Salud
+									<option value="Agua" /> Agua
+									<option value="Tierras" /> Tierras
+									<option value="Alimentacion" /> Alimentacion
+									<option value="Transporte" /> Transporte
+									<option value="Educ y Cultura" /> Educ y Cultura
+									<option value="Economia Popular" /> Economia Popular
+									<option value="Igualdad Social" /> Igualdad Social
+
+								</select>
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="vocero3">Vocero 3</label>
+							<div class="controls">
+								<select name="vocero3" id="vocero3" class="span10">
+									<option value="" />
+									<option value="Salud" /> Salud
+									<option value="Agua" /> Agua
+									<option value="Tierras" /> Tierras
+									<option value="Alimentacion" /> Alimentacion
+									<option value="Transporte" /> Transporte
+									<option value="Educ y Cultura" /> Educ y Cultura
+									<option value="Economia Popular" /> Economia Popular
+									<option value="Igualdad Social" /> Igualdad Social
+								</select>
+							</div>
+						</div>
+
+
+						
+
+
+						
+
+
+						
+
+
+						
+
+					</div>
+
+
+					<div class="span6">
+
+						<h5>Datos del espectaculo</h5>
+						<hr class="separator" />
+						<div class="control-group">
+							<label class="control-label" for="espectaculo">Nombre del Espectaculo</label>
+							<div class="controls">
+								<input class="span10" type="text" id="espectaculo" name="espectaculo" />
+							</div>
+						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="fechaE">Fecha del Evento</label>
+							<div class="controls">
+								<input class="span10" readOnly type="text" id="datepicker1" name="fechaE" />
+							</div>
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="horario">Dias a efectuar el evento</label>
+							<div class="controls">
+								<select name="desde" id="desde" class="span5">
+									<option value="" />
+									<option value="Lunes" /> Lunes
+									<option value="Martes" /> Martes
+									<option value="Miercoles" /> Miercoles
+									<option value="Jueves" /> Jueves
+									<option value="Viernes" /> Viernes
+									<option value="Sabado" /> Sabado
+									<option value="Domingo" /> Domingo
+								</select>
+
+								<select name="hasta" id="hasta" class="span5">
+									<option value="" />
+									<option value="Lunes" /> Lunes
+									<option value="Martes" /> Martes
+									<option value="Miercoles" /> Miercoles
+									<option value="Jueves" /> Jueves
+									<option value="Viernes" /> Viernes
+									<option value="Sabado" /> Sabado
+									<option value="Domingo" /> Domingo
+								</select>
+							</div>
+
+						</div>
+
+
+
+						<div class="control-group">
+							<label class="control-label" for="dias">Horario</label>
+							<div class="controls">
+								<select name="hora1" id="hora1" class="span5">
+									<option value="" />
+									<option value="1:00AM" /> 1:00AM
+									<option value="2:00AM" /> 2:00AM
+									<option value="3:00AM" /> 3:00AM
+									<option value="4:00AM" /> 4:00AM
+									<option value="5:00AM" /> 5:00AM
+									<option value="6:00AM" /> 6:00AM
+									<option value="7:00AM" /> 7:00AM
+									<option value="8:00AM" /> 8:00AM
+									<option value="9:00AM" /> 9:00AM
+									<option value="10:00AM" /> 10:00AM
+									<option value="11:00AM" /> 11:00AM
+									<option value="12:00AM" /> 12:00AM
+									<option value="" />
+									<option value="1:00PM" /> 1:00PM
+									<option value="2:00PM" /> 2:00PM
+									<option value="3:00PM" /> 3:00PM
+									<option value="4:00PM" /> 4:00PM
+									<option value="5:00PM" /> 5:00PM
+									<option value="6:00PM" /> 6:00PM
+									<option value="7:00PM" /> 7:00PM
+									<option value="8:00PM" /> 8:00PM
+									<option value="9:00PM" /> 9:00PM
+									<option value="10:00PM" /> 10:00PM
+									<option value="11:00PM" /> 11:00PM
+									<option value="12:00PM" /> 12:00PM
+								</select>
+
+								<select name="hora2" id="hora2" class="span5">
+									<option value="" />
+									<option value="1:00AM" /> 1:00AM
+									<option value="2:00AM" /> 2:00AM
+									<option value="3:00AM" /> 3:00AM
+									<option value="4:00AM" /> 4:00AM
+									<option value="5:00AM" /> 5:00AM
+									<option value="6:00AM" /> 6:00AM
+									<option value="7:00AM" /> 7:00AM
+									<option value="8:00AM" /> 8:00AM
+									<option value="9:00AM" /> 9:00AM
+									<option value="10:00AM" /> 10:00AM
+									<option value="11:00AM" /> 11:00AM
+									<option value="12:00M" /> 12:00AM
+									<option value="" />
+									<option value="1:00PM" /> 1:00PM
+									<option value="2:00PM" /> 2:00PM
+									<option value="3:00PM" /> 3:00PM
+									<option value="4:00PM" /> 4:00PM
+									<option value="5:00PM" /> 5:00PM
+									<option value="6:00PM" /> 6:00PM
+									<option value="7:00PM" /> 7:00PM
+									<option value="8:00PM" /> 8:00PM
+									<option value="9:00PM" /> 9:00PM
+									<option value="10:00PM" /> 10:00PM
+									<option value="11:00PM" /> 11:00PM
+									<option value="12:00PM" /> 12:00PM
+								</select>
+							</div>
+
+						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="tipo">Tipo de Opini&oacute;n</label>
+							<div class="controls">
+								<select name="tipo" id="tipo" class="span10">
+									<option value="" />
+									<option value="Favorable" />Favorable
+									<option value="Rechazable" />Rechazable
+								</select>
+							</div>
+						</div>
+
+					</div>
+
+						
+				</div>
+			</div>
+
+			<div class="form-actions">
+					
+
+					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+						<i></i>Imprimir
+					</button>
+
+					<a class="btn btn-icon btn-default glyphicons circle_remove" href="/ciudadanos/lista">
+						<i></i>Cancelar
+					</a>
+
+				</div><br/><br/><br/><br/>
+			</div>
+
+		</div>
+	</div>
+
+</form>
+
+<script>
+
+
+$(function(){
+
+	$('#datepicker2').datepicker();
+	$('#datepicker1').datepicker();
+
+});
+
+        
+</script>
+
+
+
+}

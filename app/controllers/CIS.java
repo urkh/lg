@@ -17,9 +17,26 @@ public class CIS extends Controller {
 	}
 
 
-	public static Result Inicio = redirect(routes.CIS.nuevo());
+	public static Result Inicio = redirect("/is/lista");
 
 	public static Result index() {
+		return Inicio;
+	}
+
+
+	public static Result editar(Long id){
+		Form<IgualdadSocial> formRIS = form(IgualdadSocial.class).fill(IgualdadSocial.buscar.byId(id));
+		return ok(formIS.render(formRIS));
+	}
+
+	public static Result actualizar(){
+		Form<IgualdadSocial> formRIS = form(IgualdadSocial.class).bindFromRequest();
+
+		String ids = formRIS.field("id").value();
+
+		Long id = Long.parseLong(ids);
+		formRIS.get().update(id);
+		flash("exito", "Solicitud actualizada con exito");
 		return Inicio;
 	}
 

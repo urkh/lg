@@ -10,6 +10,7 @@
 } 
 
 
+@if(formEconomia("id").value == null){
 
 
 						<div align="center" class="control-group input-append">
@@ -20,29 +21,29 @@
 							</div>
 						</div>
 
+}
 
 
-
- <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/economia/guardar" autocomplete="off" />
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="@if(formEconomia("id").value == null){/economia/guardar}else{/economia/actualizar}" autocomplete="off" />
 
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="well" style="padding-bottom: 10px;">
-				<h4>Registro de Solicitud</h4>
+				<h4>@if(formEconomia("id").value == null){Registro de Solicitud}else{Editar Solicitud}</h4>
 				<hr class="separator" />
 				<div class="row-fluid">
 					<div class="span6">
 
 
+						<input type="hidden" name="persona.id" id="persona.id" value="@formEconomia("persona.id").value">
 
-
-						<input type="hidden" name="persona.id" id="persona.id" value="">
+						<input type="hidden" name="id" id="id" value="@formEconomia("id").value">
 
 
 						<div class="control-group">
 							<label class="control-label" for="nombre">Nombre</label>
 							<div class="controls">
-								<input class="span8" readOnly type="text" id="nombre" name="nombre" value="" />
+								<input class="span8" readOnly type="text" id="nombre" name="nombre" value="@formEconomia("persona.nombre").value"/>
 							</div>
 						</div>
 
@@ -51,7 +52,7 @@
 						<div class="control-group">
 							<label class="control-label" for="apellido">Apellido</label>
 							<div class="controls">
-								<input class="span8" readOnly id="apellido" name="apellido" type="text" />
+								<input class="span8" readOnly id="apellido" name="apellido" type="text" value="@formEconomia("persona.apellido").value" />
 							</div>
 						</div>
 
@@ -59,9 +60,9 @@
 						
 
 						<div class="control-group">
-							<label class="control-label" for="fechaSol">Fecha</label>
+							<label class="control-label" for="fecha">Fecha</label>
 							<div class="controls">
-								<input class="span10" type="text" id="datepicker" name="fecha" value="" />
+								<input class="span10" readOnly type="text" id="datepicker" name="fecha" value="@formEconomia("fecha").value" />
 							</div>
 						</div>
 
@@ -70,49 +71,62 @@
 							<label class="control-label" for="solicitud">Tipo de Solicitud</label>
 							<div class="controls">
 								<select name="solicitud" id="solicitud" class="span10">
-									<option value="" />
-									<option value="Curso" />Curso
-									<option value="Empleo" />Empleo
-									<option value="Postulacion" />Postulacion
+									<option  @if(formEconomia("solicitud").value == null){selected} value="" />
+									<option  @if(formEconomia("solicitud").value == "Curso"){selected} value="Curso" />Curso
+									<option  @if(formEconomia("solicitud").value == "Empleo"){selected} value="Empleo" />Empleo
+									<option  @if(formEconomia("solicitud").value == "Postulacion"){selected} value="Postulacion" />Postulacion
 								</select>
 							</div>
 						</div>
 
 
 
-						<div class="control-group" id="tipoSol" style="display:none;">
+						<div class="control-group" id="tipoSol" @if(formEconomia("tipoSol").value == null){style="display:none;"}>
 							<label class="control-label" for="tipoSol">Tipo</label>
 							<div class="controls">
-								<input type="text" name="tipoSol" id="tipoSol" placeholder="Tipo de curso o empleo" />
+								<input type="text" name="tipoSol" id="tipoSol" placeholder="Tipo de curso o empleo" value="@formEconomia("tipoSol").value" />
 							</div>
 						</div>
 
-						<div class="control-group" id="empresa" style="display:none;">
+						<div class="control-group" id="empresa" @if(formEconomia("empresa").value == null){style="display:none;"} >
 							<label class="control-label" for="empresa">Empresa</label>
 							<div class="controls">
-								<input type="text" name="empresa" id="empresa" />
+								<input type="text" name="empresa" id="empresa" value="@formEconomia("empresa").value" />
 							</div>
 						</div>
 
-						<div class="control-group" id="turno" style="display:none;">
+						<div class="control-group" id="turno" @if(formEconomia("turno").value == null){style="display:none;"}>
 							<label class="control-label" for="turno">Turno</label>
 							<div class="controls">
 								<select name="turno" id="turno" class="span8">
-									<option value="" />
-									<option value="Ma&ntilde;ana" />Ma&ntilde;ana
-									<option value="Tarde" />Tarde
-									<option value="Noche" />Noche
+									<option @if(formEconomia("turno").value == null){selected} value="" />
+									<option @if(formEconomia("turno").value == "Maana"){selected} value="Ma&ntilde;ana" />Ma&ntilde;ana
+									<option @if(formEconomia("turno").value == "Tarde"){selected}  value="Tarde" />Tarde
+									<option @if(formEconomia("turno").value == "Noche"){selected}  value="Noche" />Noche
 								</select>
 							</div>
 						</div>
 
 
-						<div class="control-group" id="dias" style="display:none;">
+						<div class="control-group" id="dias" @if(formEconomia("dias").value == null){style="display:none;"}>
 							<label class="control-label" for="dias">Dias</label>
 							<div class="controls">
-								<input type="text" name="dias" id="dias"/>
+								<input type="text" name="dias" value="@formEconomia("dias").value" id="dias"/>
 							</div>
 						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="estado">Estado Solicitud</label>
+							<div class="controls">
+								<select name="estado" id="estado" class="span10">
+									<option @if(formEconomia("estado").value == null){selected} value="" />
+									<option @if(formEconomia("estado").value == "Aprobada"){selected} value="Aprobada" />Aprobada
+									<option @if(formEconomia("estado").value == "No Aprobada"){selected} value="No Aprobada" />No Aprobada
+								</select>
+							</div>
+						</div>
+
 
 
 					</div>
@@ -122,12 +136,17 @@
 			</div>
 
 			<div class="form-actions">
-					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+					
+				@if(formEconomia("id").value == null){<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
 						<i></i>Guardar
-					</button>
-					<button type="button" class="btn btn-icon btn-default glyphicons circle_remove">
+					</button>}else{<button type="submit" class="btn btn-icon btn-info glyphicons circle_ok" >
+						<i></i>Actualizar
+					</button>}
+
+					<a class="btn btn-icon btn-default glyphicons circle_remove" href="/economia/lista">
 						<i></i>Cancelar
-					</button>
+					</a>
+
 				</div><br/><br/><br/><br/><br/><br/><br/><br/>
 			</div>
 

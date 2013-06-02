@@ -9,41 +9,44 @@
         </div>
 } 
 
-<form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/ciudadanos/guardar" autocomplete="off" />
+<form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="@if(formPersona("id").value == null){/ciudadanos/guardar}else{/ciudadanos/actualizar}" autocomplete="off" />
 
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="well" style="padding-bottom: 10px;">
-				<h4>Registro de Ciudadanos</h4>
+				<h4>@if(formPersona("id").value == null){Registro de Ciudadanos}else{Editar Ciudadano}</h4>
 				<hr class="separator" />
 				<div class="row-fluid">
 					<div class="span6">
 
+
+						<input type="hidden" name="id" id="id" value="@formPersona("id").value">
+
 						<div class="control-group">
 							<label class="control-label" for="cedula">Cedula</label>
 							<div class="controls">
-								<input class="span10" id="cedula" name="cedula" type="text" />
+								<input class="span10" id="cedula" name="cedula" type="text" value="@formPersona("cedula").value" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<label class="control-label" for="nombre">Nombre</label>
 							<div class="controls">
-								<input class="span12" id="nombre" name="nombre" type="text" />
+								<input class="span12" id="nombre" name="nombre" type="text" value="@formPersona("nombre").value" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<label class="control-label" for="apellido">Apellido</label>
 							<div class="controls">
-								<input class="span12" id="apellido" name="apellido" type="text" />
+								<input class="span12" id="apellido" name="apellido" type="text" value="@formPersona("apellido").value" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<label class="control-label" for="fechaNac">Fecha de Nacimiento</label>
 							<div class="controls">
-								<input class="span12" type="text" id="datepicker" name="fechaNac" value="" />
+								<input class="span12" type="text" id="datepicker" name="fechaNac" readOnly value="@formPersona("fechaNac").value" />
 							</div>
 						</div>
 
@@ -51,9 +54,9 @@
 							<label class="control-label" for="sexo">G&eacute;nero</label>
 							<div class="controls">
 								<select name="sexo" id="sexo" class="span10">
-									<option value="" />
-									<option value="Masculino" />Masculino
-									<option value="Femenino" />Femenino
+									<option @if(formPersona("sexo").value == null){selected} value="" />
+									<option @if(formPersona("sexo").value == "Masculino"){selected} value="Masculino" />Masculino
+									<option @if(formPersona("sexo").value == "Femenino"){selected} value="Femenino" />Femenino
 								</select>
 							</div>
 						</div>
@@ -62,7 +65,7 @@
 						<div class="control-group">
 							<label class="control-label" for="telefono">Tel&eacute;fono</label>
 							<div class="controls">
-								<input class="span12" id="telefono" name="telefono" type="text" />
+								<input class="span12" id="telefono" name="telefono" value="@formPersona("telefono").value" type="text" />
 							</div>
 						</div>
 
@@ -71,7 +74,7 @@
 						<div class="control-group">
 							<label class="control-label" for="direccion">Direcci&oacute;n</label>
 							<div class="controls">
-								<textarea rows="3" class="span12" name="direccion" id="direccion"></textarea>
+								<textarea rows="3" class="span12" name="direccion" id="direccion">@formPersona("direccion").value</textarea>
 							</div>
 						</div>
 
@@ -88,11 +91,11 @@
 							<label class="control-label" for="gradoInstruccion">Grado de Instrucci&oacute;n</label>
 							<div class="controls">
 								<select name="gradoInstruccion" id="gradoInstruccion" class="span10">
-									<option value="" />
-									<option value="Sin estudios" />Sin estudios
-									<option value="Primaria" />Primaria
-									<option value="Bachiller" />Bachiller
-									<option value="Universitario" />Universitario
+									<option @if(formPersona("gradoInstruccion").value == null){selected} value="" />
+									<option @if(formPersona("gradoInstruccion").value == "Sin estudios"){selected} value="Sin estudios" />Sin estudios
+									<option @if(formPersona("gradoInstruccion").value == "Primaria"){selected} value="Primaria" />Primaria
+									<option @if(formPersona("gradoInstruccion").value == "Bachiller"){selected} value="Bachiller" />Bachiller
+									<option @if(formPersona("gradoInstruccion").value == "Universitario"){selected} value="Universitario" />Universitario
 								</select>
 							</div>
 						</div>
@@ -100,7 +103,7 @@
 						<div class="control-group">
 							<label class="control-label" for="ingresoMensual">Ingreso Mensual</label>
 							<div class="controls">
-								<input class="span10" id="ingresoMensual" name="ingresoMensual" type="text" />
+								<input class="span10" id="ingresoMensual" name="ingresoMensual" value="@formPersona("ingresoMensual").value" type="text" />
 							</div>
 						</div>
 
@@ -111,15 +114,15 @@
 								<ul>
 								
 									<label class="radio">
-										<input type="radio" class="radio" name="estadoCivil" value="Soltero" /> Soltero
+										<input type="radio" class="radio" name="estadoCivil" @if(formPersona("estadoCivil").value == "Soltero"){checked} value="Soltero" /> Soltero
 									</label><br />
 										
 									<label class="radio">
-										<input type="radio" class="radio" name="estadoCivil" value="Casado" /> Casado
+										<input type="radio" class="radio" name="estadoCivil" @if(formPersona("estadoCivil").value == "Casado"){checked} value="Casado" /> Casado
 									</label><br />
 										
 									<label class="radio">
-										<input type="radio" class="radio" name="estadoCivil" value="Divorciado" /> Divorciado
+										<input type="radio" class="radio" name="estadoCivil" @if(formPersona("estadoCivil").value == "Divorciado"){checked} value="Divorciado" /> Divorciado
 									</label>
 								</ul>
 							</div>
@@ -131,15 +134,15 @@
 								<ul>
 								
 									<label class="radio">
-										<input type="radio" class="radio" name="tipoVivienda" value="Propia" /> Propia
+										<input type="radio" class="radio" name="tipoVivienda" @if(formPersona("tipoVivienda").value == "Propia"){checked} value="Propia" /> Propia
 									</label><br />
 										
 									<label class="radio">
-										<input type="radio" class="radio" name="tipoVivienda" value="Alquilada" /> Alquilada
+										<input type="radio" class="radio" name="tipoVivienda" @if(formPersona("tipoVivienda").value == "Alquilada"){checked} value="Alquilada" /> Alquilada
 									</label><br />
 										
 									<label class="radio">
-										<input type="radio" class="radio" name="tipoVivienda" value="Otra" /> Otra
+										<input type="radio" class="radio" name="tipoVivienda" @if(formPersona("tipoVivienda").value == "Otra"){checked} value="Otra" /> Otra
 									</label>
 								</ul>
 							</div>
@@ -150,12 +153,18 @@
 				</div>
 
 				<div class="form-actions">
-					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+					
+					@if(formPersona("id").value == null){<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
 						<i></i>Guardar
-					</button>
-					<button type="button" class="btn btn-icon btn-default glyphicons circle_remove">
+					</button>}else{<button type="submit" class="btn btn-icon btn-info glyphicons circle_ok" >
+						<i></i>Actualizar
+					</button>}
+
+					<a class="btn btn-icon btn-default glyphicons circle_remove" href="/ciudadanos/lista">
 						<i></i>Cancelar
-					</button>
+					</a>
+
+
 				</div><br/><br/><br/><br/>
 			</div>
 		</div>

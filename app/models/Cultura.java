@@ -9,7 +9,7 @@ import play.data.validation.*;
 import play.data.format.*;
 
 
-import com.avaje.ebean.Page;
+import com.avaje.ebean.*;
 
 @Entity
 public class Cultura extends Model {
@@ -36,6 +36,8 @@ public class Cultura extends Model {
 	@Constraints.Required
 	public String fecha;
 
+	public String estado;
+
 
 	public static Finder<Long, Cultura> buscar = new Finder<Long, Cultura>(Long.class, Cultura.class);
 
@@ -45,10 +47,10 @@ public class Cultura extends Model {
 	}
 
 
-
-
-
-
+	public static List<Cultura> listar(){
+		List<Cultura> listar = Ebean.find(Cultura.class).fetch("hijos").findList();
+		return listar;
+	}
 
 
 }

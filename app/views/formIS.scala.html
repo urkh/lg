@@ -11,7 +11,7 @@
 
 
 
-
+@if(formIS("id").value == null){
 						<div align="center" class="control-group input-append">
 						 	<label class="control-label" for="Ciudadano">Ciudadano a buscar</label>
 						 	<div class="controls">
@@ -19,30 +19,30 @@
 							    <button id="buscarCedula" rel="tooltip" data-placement="right" title="Ingrese una cedula a buscar" class="btn btn-primary" type="submit">Buscar</button>
 							</div>
 						</div>
+}
 
 
 
-
- <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/is/guardar" autocomplete="off" />
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="@if(formIS("id").value == null){/is/guardar}else{/is/actualizar}" autocomplete="off" />
 
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="well" style="padding-bottom: 10px;">
-				<h4>Registro de Solicitudes</h4>
+				<h4>@if(formIS("id").value == null){Registro de Solicitud}else{Editar Solicitud}</h4>
 				<hr class="separator" />
 				<div class="row-fluid">
 					<div class="span6">
 
 
+					<input type="hidden" name="persona.id" id="persona.id" value="@formIS("persona.id").value">
 
-
-						<input type="hidden" name="persona.id" id="persona.id" value="">
+						<input type="hidden" name="id" id="id" value="@formIS("id").value">
 
 
 						<div class="control-group">
 							<label class="control-label" for="nombre">Nombre</label>
 							<div class="controls">
-								<input class="span8" readOnly type="text" id="nombre" name="nombre" value="" />
+								<input class="span8" readOnly type="text" id="nombre" name="nombre" value="@formIS("persona.nombre").value"/>
 							</div>
 						</div>
 
@@ -51,7 +51,7 @@
 						<div class="control-group">
 							<label class="control-label" for="apellido">Apellido</label>
 							<div class="controls">
-								<input class="span8" readOnly id="apellido" name="apellido" type="text" />
+								<input class="span8" readOnly id="apellido" name="apellido" value="@formIS("persona.apellido").value" type="text" />
 							</div>
 						</div>
 
@@ -61,7 +61,7 @@
 						<div class="control-group">
 							<label class="control-label" for="fechaPago">Fecha</label>
 							<div class="controls">
-								<input class="span10" type="text" id="datepicker2" name="fecha" value="" />
+								<input class="span10" readOnly type="text" id="datepicker2" name="fecha" value="@formIS("fecha").value"/>
 							</div>
 						</div>
 
@@ -69,9 +69,21 @@
 						<div class="control-group">
 							<label class="control-label" for="tipoAyuda">Tipo de Ayuda</label>
 							<div class="controls">
-								<input class="span10" type="text" id="tipoAyuda" name="tipoAyuda" />
+								<input class="span10" type="text" id="tipoAyuda" name="tipoAyuda" value="@formIS("tipoAyuda").value" />
 							</div>
 						</div>
+
+						<div class="control-group">
+							<label class="control-label" for="estado">Estado Solicitud</label>
+							<div class="controls">
+								<select name="estado" id="estado" class="span10">
+									<option @if(formIS("estado").value == null){selected} value="" />
+									<option @if(formIS("estado").value == "Aprobada"){selected} value="Aprobada" />Aprobada
+									<option @if(formIS("estado").value == "No Aprobada"){selected} value="No Aprobada" />No Aprobada
+								</select>
+							</div>
+						</div>
+
 
 
 					</div>
@@ -81,12 +93,16 @@
 			</div>
 
 			<div class="form-actions">
-					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+
+					@if(formIS("id").value == null){<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
 						<i></i>Guardar
-					</button>
-					<button type="button" class="btn btn-icon btn-default glyphicons circle_remove">
+					</button>}else{<button type="submit" class="btn btn-icon btn-info glyphicons circle_ok" >
+						<i></i>Actualizar
+					</button>}
+
+					<a class="btn btn-icon btn-default glyphicons circle_remove" href="/is/lista">
 						<i></i>Cancelar
-					</button>
+					</a>
 				</div><br/><br/><br/><br/>
 			</div>
 

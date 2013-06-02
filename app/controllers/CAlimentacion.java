@@ -2,13 +2,15 @@ package controllers;
 
 import models.Alimentacion;
 
-import play.data.Form;
-import play.mvc.Controller;
-import play.mvc.Result;
+import play.*;
+import play.mvc.*;
+import play.data.*;
 
 import views.html.formAlimentacion;
 import views.html.listaAlimentacion;
 
+
+//@Security.Authenticated(Secured.class)
 public class CAlimentacion extends Controller {
 
 
@@ -17,7 +19,7 @@ public class CAlimentacion extends Controller {
 	}
 
 
-	public static Result Inicio = redirect(routes.CAlimentacion.nuevo());
+	public static Result Inicio = redirect("/alimentacion/lista");
 
 	public static Result index() {
 		return Inicio;

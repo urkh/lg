@@ -19,7 +19,7 @@ public class CSalud extends Controller {
 	}
 
 
-	public static Result Inicio = redirect(routes.CSalud.nuevo());
+	public static Result Inicio = redirect("/salud/lista");
 
 	public static Result index() {
 		return Inicio;
@@ -29,6 +29,24 @@ public class CSalud extends Controller {
 	public static Result nuevo() {
 		Form<Salud> formRSalud = form(Salud.class);
 		return ok(formSalud.render(formRSalud));
+	}
+
+
+
+	public static Result editar(Long id){
+		Form<Salud> formRSalud = form(Salud.class).fill(Salud.buscar.byId(id));
+		return ok(formSalud.render(formRSalud));
+	}
+
+	public static Result actualizar(){
+		Form<Salud> formRSalud = form(Salud.class).bindFromRequest();
+
+		String ids = formRSalud.field("id").value();
+
+		Long id = Long.parseLong(ids);
+		formRSalud.get().update(id);
+		flash("exito", "Solicitud actualizada con exito");
+		return Inicio;
 	}
 
 

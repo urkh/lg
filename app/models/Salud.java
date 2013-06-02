@@ -8,6 +8,7 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Page;
 
 @Entity
@@ -31,12 +32,21 @@ public class Salud extends Model {
 
 	public String tiempoEnf;
 
+	public String estado;
+
 
 	public static Finder<Long, Salud> buscar = new Finder<Long, Salud>(Long.class, Salud.class);
 
 
 	public static Page<Salud> pagina(int pagina, int tamanoPagina, String ordenarPor, String ordenar, String filtrar) {
 		return buscar.where().ilike("persona.cedula", "%" + filtrar + "%").orderBy(ordenarPor + " " + ordenar).fetch("persona").findPagingList(tamanoPagina).getPage(pagina);
+	}
+
+
+	public static List<Salud> listar() {
+		List<Salud> lista = Ebean.find(Salud.class).fetch("persona").findList();
+		return lista;
+		
 	}
 
 

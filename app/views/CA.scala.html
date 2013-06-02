@@ -1,0 +1,77 @@
+@(formCA: Form[Persona], norte: String, sur: String, este: String, oeste: String, fecha: String, fundo: String, tOcupacion: String, hectareas: String, rubro: String, vocero1: String, vocero2: String, tiempo: String)
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <table width="100%">
+          <tr>
+            <td width="50%" align="left">
+               <img width="100%" height="200%" src="./public/template/logoP.png"  />
+            </td>
+          </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center">Republica Bolivariana de Venezuela</td>
+      </tr>
+      <tr>
+        <td align="center">Consejo Comunal La Esperanza de Orituco</td>
+      </tr>
+      <tr>
+        <td align="center">Municipio Jose Tadeo Monagas, Parroquia Lezama, Guarico</td>
+      </tr>
+
+      <tr>
+        <td align="center">Rif: J-24986707-1</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center"><b>AVAL DE PRODUCTOR</b><br/></td>
+      </tr>
+    </table>
+    <br/>
+
+    <p align="justify">Quienes suscriben, representantes del "Consejo Comunal La Esperanza de Orituco", sector La Esperanza, por medio de la presente se hace constar que el(a) productor(a)<b> @formCA("nombre").value @formCA("apellido").value</b> ocupante de la unidad de produccion (Fundo) <b>@fundo</b> cuyos linderos especificos son NORTE: <b>@norte</b>, SUR: <b>@sur</b>, ESTE: <b>@este</b>, OESTE: <b>@oeste</b>.</p>
+
+    <p align="justify">Desde hace aproximadamente <b>@tOcupacion @tiempo</b>, por lo que damos fe de que es un <b>PRODUCTOR AGRICOLA INDEPENDIENTE</b>, en esta comunidad, a los efectos de tramitacion de financiamiento para la explotacion de <b> @formCA("hectareas").value </b> hectareas de <b>@rubro</b></p>
+
+
+
+    <br/><br/>
+
+    
+    <table width="100%">
+      <tr>
+        <td align="left" height="40"><b>Por el consejo comunal:</b><br/><br/><br/></td>
+      </tr>
+
+      <tr>
+        <td align="center"><b>____________________________</b></td>
+        <td align="center" width="100px"></td>
+        <td align="center"><b>____________________________</b></td>
+      </tr>
+      <tr>
+        <td align="center"><b>Vocero: @vocero1</b></td>
+        <td></td>
+        <td align="center"><b>Vocero: @vocero2</b></td>
+      </tr>
+
+    </table>
+
+<br/>
+<br/><br/>
+
+    <p align="right"><b>@fecha</b></p>
+
+  </body>
+</html>

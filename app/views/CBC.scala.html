@@ -1,0 +1,69 @@
+@(formPersona: Form[Persona], ano: String, mes: String, dia: String)
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <table width="100%">
+          <tr>
+            <td width="50%" align="left">
+               <img width="100%" height="200%" src="./public/template/logoP.png"  />
+            </td>
+          </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center">Republica Bolivariana de Venezuela</td>
+      </tr>
+      <tr>
+        <td align="center">Consejo Comunal La Esperanza de Orituco</td>
+      </tr>
+      <tr>
+        <td align="center">Municipio Jose Tadeo Monagas, Parroquia Lezama, Guarico</td>
+      </tr>
+
+      <tr>
+        <td align="center">Rif: J-24986707-1</td>
+      </tr>
+    </table>
+
+    <br/>
+    <br/>
+
+    <table width="100%">
+      <tr>
+        <td align="center"><b>CARTA DE BUENA CONDUCTA</b></td>
+      </tr>
+    </table>
+
+    <br/>
+
+<p style="text-indent:100" align="justify"> El Consejo Comunal La Esperanza de Orituco, por medio de la presente hace constar que conoce suficientemente, de vista, trato y comunicación a (el) la ciudadano(a): <b>@formPersona("nombre").value   @formPersona("apellido").value</b>, mayor de edad, Estado Civil: <b> @formPersona("estadoCivil").value</b>, titular de la Cedula de Identidad: <b> @formPersona("cedula").value</b> residenciado en <b>@formPersona("direccion").value</b>, desde hace ______________: y durante todo ese tiempo de residencia en nuestra comunidad, siempre ha mantenido una conducta de sana convivencia  y de respeto a las leyes de la Republica Bolivariana de Venezuela.</p> 
+
+<br/>
+
+<p style="text-indent:100" align="justify">Constancia que se expide a petición de parte interesada en el Caserio La Esperanza de Orituco, Municipio Jose Tadeo Monagas, Estado Guarico a los <b>@dia</b> dias del mes <b>@mes</b> del año <b>@ano</b>.</p>
+
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+    
+    <table width="100%">
+       <tr>
+        <td align="left" height="40"><b>En fe que todo lo dicho es cierto, firmo:</b><br/><br/><br/><br/></td>
+      </tr>
+
+      <tr>
+        <td align="center" height="40"><b>____________________________</b></td>
+      </tr>
+      <tr><td align="center" height="40">vocero</td></tr>
+    </table>
+
+  </body>
+</html>

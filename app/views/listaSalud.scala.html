@@ -51,9 +51,14 @@
         </div>
         </form>
         
-        <a rel="tooltip" data-placement="left" title="Realizar Nueva Solicitud" class="btn btn-success" id="add" href="/salud/nuevo">Nueva</a>
-        
+        <div id="add">
+        <a rel="tooltip" data-placement="left" title="Realizar Nueva Solicitud" class="btn btn-success" href="/salud/nuevo">Nueva</a>
+
+        <a rel="tooltip" data-placement="bottom" title="Reportes" class="btn btn-info" href="/salud/reporte">Reportes</a>
+        </div>
+
     </div>
+        
     
     @if(paginaActual.getTotalRowCount == 0) {
         
@@ -66,13 +71,12 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="reporte header" width="30"><a>PDF</a></th>
                     @header("persona.cedula", "Cedula")
                     @header("persona.nombre", "Ciudadano")
                     @header("fecha", "Fecha")
                     @header("enfermedad", "Enfermedad")
                     @header("medicamentos", "Medicamentos")
-                    @header("tipoOp", "Operacion")
+                    @header("estado", "Estado")
 
                     
                     
@@ -81,16 +85,10 @@
             <tbody>
 
                 @for(salud <- paginaActual.getList) {
-                    <tr>
-
-                         <td>
-                            <a href="#"><i class="icon-th-list"></i></a>
-                        </td>
-                    
-                    
+                    <tr @if(salud.estado=="Aprobada"){class="success"}else{class="error"}>
 
                         <td>
-                            <a href="#" rel="tooltip" data-placement="bottom" title="@salud.persona.cedula">@salud.persona.cedula</a>
+                            <a href="/salud/editar/@salud.id" rel="tooltip" data-placement="bottom" title="@salud.persona.cedula">@salud.persona.cedula</a>
                         </td>
                     
                         <td>
@@ -113,8 +111,8 @@
                         </td>
                         
 
-                        <td>
-                            <span rel="tooltip" data-placement="bottom" title="@salud.tipoOp">@salud.tipoOp</span>   
+                         <td>
+                            <span  @if(salud.estado=="Aprobada"){class="label label-success"}else{class="label label-important"} rel="tooltip" data-placement="bottom" title="@salud.estado">@salud.estado</span>
                         </td>
                         
 

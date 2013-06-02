@@ -11,7 +11,7 @@
 
 
 
-
+@if(formCultura("id").value == null){
 	<div align="center" class="control-group input-append">
 	 	<label class="control-label" for="Ciudadano">Cedula representante</label>
 		<div class="controls">
@@ -20,13 +20,13 @@
 		</div>
 		<select name="hijos" id="hijos" class="span2" onChange="combo(this);"></select>
 	</div>
+}
 
 
 
 
 
-
- <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="/cultura/guardar" autocomplete="off" />
+ <form class="form-horizontal" style="padding-top: 10px; margin-bottom: 0;" id="validarForm" method="POST" action="@if(formCultura("id").value == null){/cultura/guardar}else{/cultura/actualizar}"  autocomplete="off" />
 
 	<div class="row-fluid">
 		<div class="span12">
@@ -37,7 +37,9 @@
 					<div class="span6">
 
 
-						<input type="hidden" name="hijos.id" id="hijos.id" value="">
+						<input type="hidden" name="hijos.id" id="hijos.id" value="@formCultura("hijos.id").value">
+
+						<input type="hidden" name="id" id="id" value="@formCultura("id").value">
 
 
 						<h5>Datos del Estudiante</h5>
@@ -46,7 +48,7 @@
 						<div class="control-group">
 							<label class="control-label" for="estudiante">Nombre y Apellido</label>
 							<div class="controls">
-								<input class="span8" readOnly id="estudiante" name="estudiante" type="text" />
+								<input class="span8" readOnly id="estudiante" name="estudiante" type="text" value="@formCultura("hijos.nombreH").value @formCultura("hijos.apellidoH").value" />
 							</div>
 						</div>
 
@@ -56,21 +58,21 @@
 						<div class="control-group">
 							<label class="control-label" for="tPantalon">Talla de Pantalon</label>
 							<div class="controls">
-								<input class="span8" id="tPantalon" name="tPantalon" type="text" />
+								<input class="span8" id="tPantalon" name="tPantalon" type="text" value="@formCultura("tPantalon").value" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<label class="control-label" for="tFranelas">Talla de Franelas</label>
 							<div class="controls">
-								<input class="span8" id="tFranelas" name="tFranelas" type="text" />
+								<input class="span8" id="tFranelas" name="tFranelas" type="text" value="@formCultura("tFranelas").value" />
 							</div>
 						</div>
 
 						<div class="control-group">
 							<label class="control-label" for="tZapatos">Talla de Zapatos</label>
 							<div class="controls">
-								<input class="span8" id="tZapatos" name="tZapatos" type="text" />
+								<input class="span8" id="tZapatos" name="tZapatos" type="text" value="@formCultura("tZapatos").value" />
 							</div>
 						</div>
 
@@ -98,7 +100,7 @@
 							<div class="control-group input-append date">
 								<label class="control-label" for="utiles">Lista de utiles</label>
 								<div class="controls">
-									<textarea rows="3" class="span12" id="utiles" name="utiles" type="text" ></textarea>
+									<textarea rows="3" class="span12" id="utiles" name="utiles" type="text"  value="@formCultura("utiles").value"></textarea>
 								</div>
 							</div>
 
@@ -109,9 +111,22 @@
 						<div class="control-group input-append date">
 							<label class="control-label" for="fecha">Fecha de Solicitud</label>
 							<div class="controls">
-								<input class="span12" readOnly id="datepicker2" name="fecha" type="text" />
+								<input class="span12" readOnly id="datepicker2" name="fecha" type="text" value="@formCultura("fecha").value" />
 							</div>
 						</div>
+
+
+						<div class="control-group">
+							<label class="control-label" for="estado">Estado Solicitud</label>
+							<div class="controls">
+								<select name="estado" id="estado" class="span10">
+									<option @if(formCultura("estado").value == null){selected} value="" />
+									<option @if(formCultura("estado").value == "Aprobada"){selected} value="Aprobada" />Aprobada
+									<option @if(formCultura("estado").value == "No Aprobada"){selected} value="No Aprobada" />No Aprobada
+								</select>
+							</div>
+						</div>
+
 
 
 
@@ -122,12 +137,15 @@
 			</div>
 
 			<div class="form-actions">
-					<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
+					@if(formCultura("id").value == null){<button type="submit" class="btn btn-icon btn-primary glyphicons circle_ok">
 						<i></i>Guardar
-					</button>
-					<button type="button" class="btn btn-icon btn-default glyphicons circle_remove">
+					</button>}else{<button type="submit" class="btn btn-icon btn-info glyphicons circle_ok" >
+						<i></i>Actualizar
+					</button>}
+
+					<a class="btn btn-icon btn-default glyphicons circle_remove" href="/cultura/lista">
 						<i></i>Cancelar
-					</button>
+					</a>
 				</div><br/><br/><br/><br/>
 			</div>
 

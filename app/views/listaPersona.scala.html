@@ -70,7 +70,8 @@
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th class="reporte header" width="30"><a>PDF</a></th>
+                    <th class="reporte header" width="30"><a>CR</a></th>
+                    <th class="reporte header" width="30"><a>CBC</a></th>
                     @header("cedula", "Cedula")
                     @header("nombre", "Ciudadano")
                     @header("fechaNac", "Fecha Nacimiento")
@@ -84,12 +85,18 @@
                     <tr>
 
                         <td>
-                            <a href="#"><i class="icon-th-list"></i></a>
+                            <a href="/ciudadanos/cr/@persona.id" rel="tooltip" data-placement="right" title="Constancia de residencia"><i class="icon-home"></i></a>
+                        </td>
+
+                        <td>
+
+                        <a href="/ciudadanos/cbc/@persona.id" rel="tooltip" data-placement="bottom" title="Carta de buena conducta"><i class="icon-user"></i></a>
+
                         </td>
                     
 
                         <td>
-                            <a href="#" rel="tooltip" data-placement="bottom" title="@persona.cedula">@persona.cedula</a>
+                            <a href="/ciudadanos/editar/@persona.id" rel="tooltip" data-placement="bottom" title="@persona.cedula">@persona.cedula</a>
                         </td>
                     
                         <td>

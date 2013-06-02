@@ -24,7 +24,7 @@ import java.util.Map;
 public class CHijos extends Controller {
 
 
-	public static Result Inicio = redirect(routes.CHijos.nuevo());
+	public static Result Inicio = redirect("/ciudadanos/lista");
 
 	public static Result index() {
 		return Inicio;
